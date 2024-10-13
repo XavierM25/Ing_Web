@@ -1,4 +1,31 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
 
-<p>
-    este es el dashboard
-</p>
+<Layout title ="Guimarbot: Dashboard"> <div class="dashboard-container"> 
+    <aside class="sidebar"> 
+        <nav> 
+            <ul> 
+                <li>
+                    <a href="/dashboard" aria-current="page">Inicio</a>
+                </li> 
+                <li>
+                    <a href="/dashboard/profile">Perfil</a>
+                </li> 
+                <li>
+                    <a href="/dashboard/settings">Configuración</a>
+                </li> 
+                <li>
+                    <a href="/dashboard/analytics">Análisis</a>
+                </li> 
+            </ul> 
+        </nav> 
+    </aside> 
+    <section class="content">  <slot /> 
+    </section> 
+</Layout> 
+<style> 
+    .dashboard-container { display: flex; } 
+    .sidebar { width: 200px; background-color: #f0f0f0; padding: 10px; } 
+    .content { flex: 1; padding: 20px; } 
+</style>
