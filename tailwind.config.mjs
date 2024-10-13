@@ -8,7 +8,11 @@ export default {
 		"./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
 	],
 	theme: {
-		extend: {},
+		extend: {
+			backgroundImage: {
+				'custom-gradient': 'radial-gradient(circle 550px at 65% 0%, var(--tw-gradient-stops))',
+			  },
+		},
 	},
 	plugins: [nextui(), animations]
 }

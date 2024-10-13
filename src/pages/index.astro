@@ -5,11 +5,12 @@ import Header from "../layouts/header.astro";
 ---
 
 <Layout title="GuimarBot - Educando y aprendiendo">
-  <main class="w-full">
-    <Header />
-    <body>
-      <Page />
-      <div class="flex" style="min-height:var(--static-space-16);width:100%"></div>
-    </body>
+  <main class="w-full bg-[#000]">
+      <div class="relative flex flex-col h-screen">
+        <div class="flex-1 bg-custom-gradient from-[#36023b] via-[#18041a] to-black">
+          <Header />
+          <Page />
+        </div>
+      </div>
   </main>
 </Layout>
