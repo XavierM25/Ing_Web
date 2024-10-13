@@ -16,33 +16,36 @@ const features = [
 
 <div class="w-full items-center flex justify-center flex-col">
   <h1 class="text-[65px] text-white pt-24" style="font-family: Inter, sans-serif; font-weight: 900;">Planes</h1>
-  <p class="text-[25px] text-white opacity-50 pb-24" style="font-family: Inter, sans-serif; font-weight: 400;">¡Escoge tu plan de suscripción a la medida que desees!</p>
+  <p class="text-[25px] text-white opacity-50 pb-16" style="font-family: Inter, sans-serif; font-weight: 400;">¡Escoge tu plan de suscripción a la medida que desees!</p>
   <div class="flex flex-row space-x-10">
     <div
       id="card1"
-      class="h-[835px] w-[550px] bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] backdrop-blur rounded-3xl"
+      class="h-[675px] w-[450px] bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] backdrop-blur rounded-3xl "
     >
-      <span class="text-white m-8 flex flex-col">
+      <span class="text-white flex flex-col m-10">
         <h1
-          class="text-[40px]"
+          class="text-[30px]"
           style="font-family: Inter, sans-serif; font-weight: 800;"
         >
           Básico
         </h1>
         <h1
-          class="-mt-2 text-[20px] opacity-35 pb-5"
-          style="font-family: GeistSans, sans-serif; font-weight: 300;"
-        >
-          1 estudiante
-        </h1>
-        <h1
-          class="text-[60px] pb-12 text-[#79f23c] text-center"
-          style="font-family: Inter, sans-serif; font-weight: 900;"
-        >
-          S/ 200
-        </h1>
+        class="text-[15px] opacity-35"
+        style="font-family: GeistSans, sans-serif; font-weight: 300;"
+      >
+        1 estudiante
+      </h1>
+        <div class="flex flex-row items-end">
+          <h1
+            class="text-[50px] pb-12 text-[#fad033] text-left"
+            style="font-family: Inter, sans-serif; font-weight: 900;"
+          >
+            S/ 200
+          </h1>
+          <p class="text-[30px] pb-12 text-[#fff] opacity-35 mb-2 ml-2" style="font-family: Inter, sans-serif; font-weight: 600;">/Anual</p>
+        </div>
         <p>
-          <ul class="space-y-5 flex flex-col">
+          <ul class="space-y-4 flex flex-col">
             {
               features.map((feature) => (
                 <li class="flex items-start">
@@ -63,7 +66,7 @@ const features = [
                     />
                   </svg>
                   <span
-                    class="opacity-50 text-[18px]"
+                    class="opacity-50 text-[12px]"
                     style="font-family: Poppins, sans-serif; font-weight: 300;"
                   >
                     {feature}
@@ -74,42 +77,41 @@ const features = [
           </ul>
         </p>
       </span>
-      <div class="flex justify-center mt-10">
-        <Button color="success" size="lg" variant="shadow">
-          <p
-            class="text-[20px]"
-            style="font-family: Inter, sans-serif; font-weight: 800;"
-          >
-            Adquirir
-          </p>
-        </Button>
+      <div class="m-10">
+        <button class="flex flex-row w-full h-12 items-center border-[#3f3f3f] border-[1px] text-white justify-center text-opacity-50 rounded-lg" style="font-family: Inter, sans-serif; font-weight: 600;">
+          Adquirir
+          <svg class="ml-2" data-testid="geist-icon" height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.53033 2.21968L9 1.68935L7.93934 2.75001L8.46967 3.28034L12.4393 7.25001H1.75H1V8.75001H1.75H12.4393L8.46967 12.7197L7.93934 13.25L9 14.3107L9.53033 13.7803L14.6036 8.70711C14.9941 8.31659 14.9941 7.68342 14.6036 7.2929L9.53033 2.21968Z" fill="currentColor"></path></svg>
+        <button />
       </div>
     </div>
     <div
       id="card2"
-      class="h-[835px] w-[550px] bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] backdrop-blur rounded-3xl"
+      class="h-[675px] w-[450px] bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] backdrop-blur rounded-3xl"
     >
-      <span class="text-white m-8 flex flex-col">
+      <span class="text-white flex flex-col m-10">
         <h1
-          class="text-[40px]"
+          class="text-[30px]"
           style="font-family: Inter, sans-serif; font-weight: 800;"
         >
           Experto
         </h1>
         <h1
-          class="-mt-2 text-[20px] opacity-35 pb-5"
-          style="font-family: GeistSans, sans-serif; font-weight: 300;"
-        >
-          2 estudiantes
-        </h1>
-        <h1
-          class="text-[60px] pb-12 text-[#fa33b5] text-center"
-          style="font-family: Inter, sans-serif; font-weight: 900;"
-        >
-          S/ 350
-        </h1>
+        class="text-[15px] opacity-35"
+        style="font-family: GeistSans, sans-serif; font-weight: 300;"
+      >
+        2 estudiantes
+      </h1>
+        <div class="flex flex-row items-end">
+          <h1
+            class="text-[50px] pb-12 text-[#fa33b5] text-left"
+            style="font-family: Inter, sans-serif; font-weight: 900;"
+          >
+            S/ 350
+          </h1>
+          <p class="text-[30px] pb-12 text-[#fff] opacity-35 mb-2 ml-2" style="font-family: Inter, sans-serif; font-weight: 600;">/Anual</p>
+        </div>
         <p>
-          <ul class="space-y-5 flex flex-col">
+          <ul class="space-y-4 flex flex-col">
             {
               features.map((feature) => (
                 <li class="flex items-start">
@@ -130,7 +132,7 @@ const features = [
                     />
                   </svg>
                   <span
-                    class="opacity-50 text-[18px]"
+                    class="opacity-50 text-[12px]"
                     style="font-family: Poppins, sans-serif; font-weight: 300;"
                   >
                     {feature}
@@ -141,42 +143,41 @@ const features = [
           </ul>
         </p>
       </span>
-      <div class="flex justify-center mt-10">
-        <Button color="success" size="lg" variant="shadow">
-          <p
-            class="text-[20px]"
-            style="font-family: Inter, sans-serif; font-weight: 800;"
-          >
-            Adquirir
-          </p>
-        </Button>
+      <div class="m-10">
+        <button class="flex flex-row w-full h-12 items-center border-[#3f3f3f] border-[1px] text-white justify-center text-opacity-50 rounded-lg" style="font-family: Inter, sans-serif; font-weight: 600;">
+          Adquirir
+          <svg class="ml-2" data-testid="geist-icon" height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.53033 2.21968L9 1.68935L7.93934 2.75001L8.46967 3.28034L12.4393 7.25001H1.75H1V8.75001H1.75H12.4393L8.46967 12.7197L7.93934 13.25L9 14.3107L9.53033 13.7803L14.6036 8.70711C14.9941 8.31659 14.9941 7.68342 14.6036 7.2929L9.53033 2.21968Z" fill="currentColor"></path></svg>
+        <button />
       </div>
     </div>
     <div
       id="card3"
-      class="h-[835px] w-[550px] bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] backdrop-blur rounded-3xl"
+      class="h-[675px] w-[450px] bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] backdrop-blur rounded-3xl"
     >
-      <span class="text-white m-8 flex flex-col">
+      <span class="text-white flex flex-col m-10">
         <h1
-          class="text-[40px]"
+          class="text-[30px]"
           style="font-family: Inter, sans-serif; font-weight: 800;"
         >
           Experto
         </h1>
         <h1
-          class="-mt-2 text-[20px] opacity-35 pb-5"
+          class="text-[15px] opacity-35"
           style="font-family: GeistSans, sans-serif; font-weight: 300;"
         >
-          4 estudiante
+          4 estudiantes
         </h1>
-        <h1
-          class="text-[60px] pb-12 text-[#4f3cf2] text-center"
-          style="font-family: Inter, sans-serif; font-weight: 900;"
-        >
-          S/ 500
-        </h1>
+        <div class="flex flex-row items-end">
+          <h1
+            class="text-[50px] pb-12 text-[#fa3333] text-left"
+            style="font-family: Inter, sans-serif; font-weight: 900;"
+          >
+            S/ 500
+          </h1>
+          <p class="text-[30px] pb-12 text-[#fff] opacity-35 mb-2 ml-2" style="font-family: Inter, sans-serif; font-weight: 600;">/Anual</p>
+        </div>
         <p>
-          <ul class="space-y-5 flex flex-col">
+          <ul class="space-y-4 flex flex-col">
             {
               features.map((feature) => (
                 <li class="flex items-start">
@@ -197,7 +198,7 @@ const features = [
                     />
                   </svg>
                   <span
-                    class="opacity-50 text-[18px]"
+                    class="opacity-50 text-[12px]"
                     style="font-family: Poppins, sans-serif; font-weight: 300;"
                   >
                     {feature}
@@ -208,15 +209,11 @@ const features = [
           </ul>
         </p>
       </span>
-      <div class="flex justify-center mt-10">
-        <Button color="success" size="lg" variant="shadow">
-          <p
-            class="text-[20px]"
-            style="font-family: Inter, sans-serif; font-weight: 800;"
-          >
-            Adquirir
-          </p>
-        </Button>
+      <div class="m-10">
+        <button class="flex flex-row w-full h-12 items-center border-[#3f3f3f] border-[1px] text-white justify-center text-opacity-50 rounded-lg" style="font-family: Inter, sans-serif; font-weight: 600;">
+          Adquirir
+          <svg class="ml-2" data-testid="geist-icon" height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.53033 2.21968L9 1.68935L7.93934 2.75001L8.46967 3.28034L12.4393 7.25001H1.75H1V8.75001H1.75H12.4393L8.46967 12.7197L7.93934 13.25L9 14.3107L9.53033 13.7803L14.6036 8.70711C14.9941 8.31659 14.9941 7.68342 14.6036 7.2929L9.53033 2.21968Z" fill="currentColor"></path></svg>
+        <button />
       </div>
     </div>
   </div>
