@@ -1,8 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Page from "../layouts/Home_Section/Hero/page.astro";
+import Header from "../layouts/header.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-	</main>
+<Layout title="GuimarBot - Educando y aprendiendo">
+  <main class="w-full">
+    <Header />
+    <body>
+      <Page />
+      <div class="flex" style="min-height:var(--static-space-16);width:100%"></div>
+    </body>
+  </main>
 </Layout>
