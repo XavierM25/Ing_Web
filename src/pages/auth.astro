@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Login from "../components/auth-components/login.astro";
+import Register from "../components/auth-components/register.astro";
+import {Button} from '@nextui-org/react';
+---
+
+<Layout title="Guimarbot: Autenticación">
+    <main class="mx-auto w-1/4 mt-20 shadow-lg animate-fade-in-down ">
+        <div class="border-[1px] rounded-lg p-5" >
+            <h1 class="text-2xl text-center pb-5 font-semibold">Guimarbot</h1>
+            <div class="w-full flex flex-row">
+                <Button id="btnLogin" radius ="none" className="bg-slate-700 text-white p-2 rounded-s-xl  w-full" client:visible>Iniciar sesión</Button>
+                <Button id="btnRegister" radius ="none" className="bg-slate-700 text-white p-2 rounded-e-xl w-full" client:visible>Registrarse</Button>
+            </div>
+            <div id="loginContainer" class="w-full">
+                <Login />
+            </div>
+            <div id="registerContainer" class="hidden w-full">
+                <Register />
+            </div>
+        </div>
+    </main> 
+</Layout>
+
+<script>
+    // Obtenemos los elementos por sus IDs
+    const loginContainer = document.getElementById('loginContainer');
+    const registerContainer = document.getElementById('registerContainer');
+
+    const btnLogin = document.getElementById('btnLogin');
+    const btnRegister = document.getElementById('btnRegister');
+
+    btnLogin?.addEventListener('click', () => {
+        loginContainer?.classList.remove('hidden');
+        registerContainer?.classList.add('hidden');
+    });
+
+    btnRegister?.addEventListener('click', () => {
+        registerContainer?.classList.remove('hidden');
+        loginContainer?.classList.add('hidden');
+    });
+</script>
