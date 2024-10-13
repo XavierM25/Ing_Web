@@ -1,15 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Page from "../layouts/Home_Section/Hero/page.astro";
-import Header from "../layouts/header.astro";
+import Hero from "../layouts/Home_Section/Hero/page.astro";
+import Header from "../layouts/Header/header.astro";
+import Planes from "../layouts/Home_Section/Planes/page.astro";
 ---
 
 <Layout title="GuimarBot - Educando y aprendiendo">
-  <main class="w-full bg-[#000]">
+  <main class="w-full bg-[#fff]">
+    
       <div class="relative flex flex-col h-screen">
         <div class="flex-1 bg-custom-gradient from-[#36023b] via-[#18041a] to-black">
           <Header />
-          <Page />
+          <Hero />
+          <Planes />
         </div>
       </div>
   </main>
