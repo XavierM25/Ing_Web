@@ -1,5 +1,6 @@
 ---
 import CourseCard from '../Courses/components/CourseCard.astro';
+import ButtonDropdown from '../Courses/components/ButtonDropdown'
 
 const courses = [
   {
@@ -36,11 +37,14 @@ const courses = [
   <p class="text-[25px] text-white opacity-50 pb-16" style="font-family: Inter, sans-serif; font-weight: 400;">¡Escoge algún curso de tu interés, puedes seleccionar entre 1 o más!</p>
   <section class="border-[#3f3f3f] border-[1px] rounded-3xl w-[1100px] h-[650px] overflow-hidden">
     <header class="border-[#3f3f3f] border-b-[1px] w-full h-[60px] flex flex-row items-center justify-around space-x">
-      <div class="bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] rounded-full w-[850px] h-[40px] flex flex-row justify-between">
+      <div class="bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] rounded-full w-[650px] h-[40px] flex flex-row justify-between">
         <input type="text" class="bg-transparent overflow-hidden w-[775px] h-full text-white p-2 ml-4" style="font-family: Inter, sans-serif; font-weight: 400; outline: none;">
         <button class="w-[40px] h-[40px] items-center flex flex-col justify-center mr-3">
           <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M15.796 15.811 21 21m-3-10.5a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
+      </div>
+      <div class="text-white">
+        <ButtonDropdown />
       </div>
       <button class="h-[40px] w-[50px] items-center flex flex-col justify-center rounded-xl border-[#3f3f3f] border-[1px] bg-white bg-opacity-5 hover:bg-opacity-20 transition-colors duration-400">
         <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3 7C3 6.44772 3.44772 6 4 6H20C20.5523 6 21 6.44772 21 7C21 7.55228 20.5523 8 20 8H4C3.44772 8 3 7.55228 3 7ZM6 12C6 11.4477 6.44772 11 7 11H17C17.5523 11 18 11.4477 18 12C18 12.5523 17.5523 13 17 13H7C6.44772 13 6 12.5523 6 12ZM9 17C9 16.4477 9.44772 16 10 16H14C14.5523 16 15 16.4477 15 17C15 17.5523 14.5523 18 14 18H10C9.44772 18 9 17.5523 9 17Z" fill="#ffffff"></path> </g></svg>

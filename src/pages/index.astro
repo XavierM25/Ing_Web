@@ -1,21 +1,23 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Hero from "../layouts/Home_Section/Hero/page.astro";
-import Header from "../layouts/Header/header.astro";
-import Planes from "../layouts/Home_Section/Planes/page.astro";
-import Courses from "../layouts/Home_Section/Courses/page.astro"
+import Layout from '../layouts/Layout.astro';
+import Hero from '../layouts/Home_Section/Hero/page.astro';
+import Header from '../layouts/Header/header.astro';
+import Planes from '../layouts/Home_Section/Planes/page.astro';
+import Carrousel from '../layouts/Home_Section/Carrousel/page.tsx';
+import Choose from '../layouts/Home_Section/Choose/page.astro';
+import Courses from '../layouts/Dashboard/Courses/page.astro';
 ---
 
 <Layout title="GuimarBot - Educando y aprendiendo">
   <main class="w-full bg-[#fff]">
-    
-      <div class="relative flex flex-col h-screen">
-        <div class="flex-1 bg-custom-gradient from-[#36023b] via-[#18041a] to-black flex flex-col space-y-8">
-          <Header />
-          <Hero />
-          <Courses />
-          <Planes />
-        </div>
-      </div>
+    <div
+      class="bg-custom-gradient from-[#36023b] via-[#18041a] to-black flex flex-col space-y-7"
+    >
+      <Header />
+      <Hero />
+      <Choose />
+      <Carrousel />
+      <Planes />
+    </div>
   </main>
 </Layout>
