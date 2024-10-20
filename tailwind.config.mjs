@@ -9,10 +9,6 @@ export default {
 	  ],
 	theme: {
 		extend: {
-			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				custom: ['CustomFont', 'sans-serif'],
-			},
 			backgroundImage: {
 				'custom-gradient': 'radial-gradient(circle 1050px at 70% 5%, var(--tw-gradient-stops))',
 			  },

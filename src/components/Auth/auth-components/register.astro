@@ -2,7 +2,12 @@
 import {Button} from '@nextui-org/react';
 import {Input} from "@nextui-org/react";
 import {DatePicker} from "@nextui-org/react";
-
+import Apellido from '../components/Register/input_apellido.tsx';
+import Nombre from '../components/Register/input_nombre';
+import Nacimiento from '../components/Register/input_nacimiento';
+import Correo from '../components/Register/input_correo';
+import VerificarContrasena from '../components/Register/input_verificarcontraseña';
+import Contrasena from '../components/Register/input_contraseña';
 ---
 <div class="flex flex-col" >
     <form>
@@ -11,13 +16,15 @@ import {DatePicker} from "@nextui-org/react";
             <span>Google</span>
         </Button>
     </form>
-    <form action="" class="flex flex-col space-y-3 animate-fade-in-left">
-        <Input className = "mt-3" type="text" label="Nombres" placeholder="Ingresa tus nombres" client:load/>
-        <Input className = "mt-3" type="text" label="Apellidos" placeholder="Ingresa tus apellidos" client:load/>
-        <Input className = "mt-3" type="email" label="Correo" placeholder="Ingresa tu correo" client:load/>
-        <DatePicker className = "mt-3" label="Año de nacimiento"  showMonthAndYearPickers client:load />
-        <Input className = "mt-3" type="password" label="Contraseña" placeholder="Ingresa tu contraseña" client:load/>
-        <Input className = "mt-3" type="password" label="Verficar contraseña" placeholder="Ingresa tu contraseña nuevamente" client:load/>
+    <form action="" class="animate-fade-in-left mt-4">
+        <div class="flex flex-col space-y-4">
+            <Apellido />
+            <Nombre />
+            <Correo />
+            <Nacimiento />
+            <Contrasena />
+            <VerificarContrasena />
+        </div>
         <Button className='mt-4' variant = "solid" client:visible>Registrarse</Button>
     </form>
 </div>
