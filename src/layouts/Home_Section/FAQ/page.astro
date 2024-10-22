@@ -1,2 +1,10 @@
 ---
+import Accordion from "../FAQ/components/Accordion.tsx"
 ---
+
+<article class="w-full items-center flex justify-center flex-col pb-32 shadow-lg animate-fadeInBlurHorizontal">
+    <h1 class="text-[65px] text-white pt-24" style="font-family: Inter, sans-serif; font-weight: 900;">Preguntas Frecuentes (FAQ)</h1>
+  <p class="text-[25px] text-white opacity-50 pb-16" style="font-family: Inter, sans-serif; font-weight: 400;">¡Si tienes alguna duda personalizada no dudes en consultarlo mediante nuestras redes!</p>
+  
+    <Accordion client:load/>
+</article>

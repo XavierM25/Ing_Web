@@ -1,0 +1,59 @@
+<article
+  class="w-full bg-white rounded-xl border-[#e4e4e7] border-[1px] shadow-md"
+>
+  <div
+    class="flex flex-col m-3 text-[#52525b]"
+    style="font-family: Poppins, sans-serif; font-family: 500;"
+  >
+    <h1 class="text-[12px] opacity-75">Fecha de nacimiento</h1>
+    <input
+      style="outline: none;"
+      type="date"
+      id="birthDate"
+      name="birthDate"
+      class="w-full text-small opacity-50 text-[#52525b]"
+      placeholder="dd/mm/yyyy"
+    />
+    <p id="dateError" class="mt-1 text-[12px] opacity-75 text-red-500 hidden">
+      Inserte una fecha válida
+    </p>
+  </div>
+</article>
+
+<script>
+  const dateInput = document.getElementById('birthDate') as HTMLInputElement;
+  const dateError = document.getElementById('dateError');
+
+  function isValidDate(date: Date): boolean {
+    return date instanceof Date && !isNaN(date.getTime());
+  }
+
+  function updateMaxDate() {
+    const today = new Date();
+    const maxDate = today.toISOString().split('T')[0];
+    dateInput.setAttribute('max', maxDate);
+  }
+
+  function validateDate() {
+    const selectedDate = new Date(dateInput.value);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (!isValidDate(selectedDate) || selectedDate > today) {
+      dateInput.classList.add('border-red-500');
+      dateInput.classList.remove('border-gray-600');
+      if (dateError) {
+        dateError.classList.remove('hidden');
+      }
+    } else {
+      dateInput.classList.remove('border-red-500');
+      dateInput.classList.add('border-gray-600');
+      if (dateError) {
+        dateError.classList.add('hidden');
+      }
+    }
+  }
+
+  updateMaxDate();
+  dateInput.addEventListener('change', validateDate);
+</script>

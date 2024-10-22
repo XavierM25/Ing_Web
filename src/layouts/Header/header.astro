@@ -1,97 +1,105 @@
 ---
-import { GeistSans } from "geist/font/sans";
+import { GeistSans } from 'geist/font/sans';
 ---
 
-<header class="top-2 left-0 right-0 z-50 backdrop-blur-sm md:bg-transparent absolute">
+<header
+  class="top-2 left-0 right-0 z-50  md:bg-transparent absolute"
+>
   <div class="mx-auto px-3 py-3 flex items-center justify-center">
-      <div class="flex flex-row justify-center bg-transparent border-[#3f3f3f] border-[1px] rounded-2xl shadow-md">
-          <ul
-            class="h-11 w-[534px] text-white flex flex-row space-x-2 justify-center items-center text-[16px]"
-            style="font-family: 'Inter', sans-serif; font-weight: 400;"
+    <div
+      class="flex flex-row justify-center bg-transparent border-[#3f3f3f] border-[1px] rounded-2xl shadow-md"
+    >
+      <ul
+        class="h-11 w-[534px] text-white flex flex-row space-x-2 justify-center items-center text-[16px]"
+        style="font-family: 'Inter', sans-serif; font-weight: 400;"
+      >
+        <a
+          href="#inicio"
+          class="flex flex-row items-center hover:bg-white hover:bg-opacity-10 hover:border-[1px] border-[#3f3f3f] px-5 py-1 rounded-xl transition-colors duration-200"
+        >
+          <svg
+            class="mr-3"
+            data-testid="geist-icon"
+            width="18"
+            height="18"
+            stroke-linejoin="round"
+            viewBox="0 0 16 16"
+            style="color: currentcolor;"
+            ><path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M12.5 6.56062L8.00001 2.06062L3.50001 6.56062V13.5L6.00001 13.5V11C6.00001 9.89539 6.89544 8.99996 8.00001 8.99996C9.10458 8.99996 10 9.89539 10 11V13.5L12.5 13.5V6.56062ZM13.78 5.71933L8.70711 0.646409C8.31659 0.255886 7.68342 0.255883 7.2929 0.646409L2.21987 5.71944C2.21974 5.71957 2.21961 5.7197 2.21949 5.71982L0.469676 7.46963L-0.0606537 7.99996L1.00001 9.06062L1.53034 8.53029L2.00001 8.06062V14.25V15H2.75001L6.00001 15H7.50001H8.50001H10L13.25 15H14V14.25V8.06062L14.4697 8.53029L15 9.06062L16.0607 7.99996L15.5303 7.46963L13.7806 5.71993C13.7804 5.71973 13.7802 5.71953 13.78 5.71933ZM8.50001 11V13.5H7.50001V11C7.50001 10.7238 7.72386 10.5 8.00001 10.5C8.27615 10.5 8.50001 10.7238 8.50001 11Z"
+              fill="currentColor"></path></svg
+          >Inicio</a
+        >
+        <a
+          href="#planes"
+          class="flex flex-row items-center hover:bg-white hover:bg-opacity-10 hover:border-[1px] border-[#3f3f3f] px-5 py-1 rounded-xl transition-colors duration-200"
+        >
+          <svg
+            class="mr-3"
+            data-testid="geist-icon"
+            width="18"
+            height="18"
+            stroke-linejoin="round"
+            viewBox="0 0 16 16"
+            style="color: currentcolor;"
+            ><path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M6.28497 1.5H13V12C13 12.5523 12.5523 13 12 13H6.28497L6.28497 1.5ZM5.03497 1.5H3V12C3 12.5523 3.44772 13 4 13H5.03497L5.03497 1.5ZM5.03497 14.5H4C2.61929 14.5 1.5 13.3807 1.5 12V1.5V0H3H13H14.5V1.5V12C14.5 13.3807 13.3807 14.5 12 14.5H6.28497V15V15.625H5.03497V15V14.5ZM8.505 3.375H9.13H10.13H10.755V4.625H10.13H9.13H8.505V3.375ZM9.13 6.375H8.505V7.625H9.13H10.13H10.755V6.375H10.13H9.13Z"
+              fill="currentColor"></path></svg
+          >Planes</a
+        >
+        <a
+          href="#faq"
+          class="flex flex-row items-center hover:bg-white hover:bg-opacity-10 hover:border-[1px] border-[#3f3f3f] px-5 py-1 rounded-xl transition-colors duration-200"
+        >
+          <svg
+            class="mr-3"
+            data-testid="geist-icon"
+            width="18"
+            height="18"
+            stroke-linejoin="round"
+            viewBox="0 0 16 16"
+            style="color: currentcolor;"
+            ><path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M7.9925 0C4.95079 0 2.485 2.46579 2.485 5.5075V8.22669C2.485 8.77318 2.21321 9.28388 1.75992 9.58912L1.33108 9.8779L1 10.1009V10.5V11.25V12H1.75H14.25H15V11.25V10.5V10.0986L14.666 9.87596L14.2306 9.58565C13.7741 9.28137 13.5 8.76913 13.5 8.22059V5.5075C13.5 2.46579 11.0342 0 7.9925 0ZM3.985 5.5075C3.985 3.29422 5.77922 1.5 7.9925 1.5C10.2058 1.5 12 3.29422 12 5.5075V8.22059C12 9.09029 12.36 9.91233 12.9801 10.5H3.01224C3.62799 9.91235 3.985 9.09303 3.985 8.22669V5.5075ZM10.7486 13.5H9.16778L9.16337 13.5133C9.09591 13.716 8.94546 13.9098 8.72067 14.0501C8.52343 14.1732 8.27577 14.25 8.00002 14.25C7.72426 14.25 7.47661 14.1732 7.27936 14.0501C7.05458 13.9098 6.90412 13.716 6.83666 13.5133L6.83225 13.5H5.25143L5.41335 13.9867C5.60126 14.5516 5.99263 15.0152 6.48523 15.3226C6.92164 15.5949 7.44461 15.75 8.00002 15.75C8.55542 15.75 9.07839 15.5949 9.5148 15.3226C10.0074 15.0152 10.3988 14.5516 10.5867 13.9867L10.7486 13.5Z"
+              fill="currentColor"></path></svg
           >
-            <a
-              href="#inicio"
-              class="flex flex-row items-center hover:bg-white hover:bg-opacity-10 hover:border-[1px] border-[#3f3f3f] px-5 py-1 rounded-xl transition-colors duration-200"
-            >
-              <svg
-                class="mr-3"
-                data-testid="geist-icon"
-                width="18"
-                height="18"
-                stroke-linejoin="round"
-                viewBox="0 0 16 16"
-                style="color: currentcolor;"
-                ><path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M12.5 6.56062L8.00001 2.06062L3.50001 6.56062V13.5L6.00001 13.5V11C6.00001 9.89539 6.89544 8.99996 8.00001 8.99996C9.10458 8.99996 10 9.89539 10 11V13.5L12.5 13.5V6.56062ZM13.78 5.71933L8.70711 0.646409C8.31659 0.255886 7.68342 0.255883 7.2929 0.646409L2.21987 5.71944C2.21974 5.71957 2.21961 5.7197 2.21949 5.71982L0.469676 7.46963L-0.0606537 7.99996L1.00001 9.06062L1.53034 8.53029L2.00001 8.06062V14.25V15H2.75001L6.00001 15H7.50001H8.50001H10L13.25 15H14V14.25V8.06062L14.4697 8.53029L15 9.06062L16.0607 7.99996L15.5303 7.46963L13.7806 5.71993C13.7804 5.71973 13.7802 5.71953 13.78 5.71933ZM8.50001 11V13.5H7.50001V11C7.50001 10.7238 7.72386 10.5 8.00001 10.5C8.27615 10.5 8.50001 10.7238 8.50001 11Z"
-                  fill="currentColor"></path></svg
-              >Inicio</a
-            >
-            <a
-              href="#planes"
-              class="flex flex-row items-center hover:bg-white hover:bg-opacity-10 hover:border-[1px] border-[#3f3f3f] px-5 py-1 rounded-xl transition-colors duration-200"
-            >
-              <svg
-                class="mr-3"
-                data-testid="geist-icon"
-                width="18"
-                height="18"
-                stroke-linejoin="round"
-                viewBox="0 0 16 16"
-                style="color: currentcolor;"
-                ><path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M6.28497 1.5H13V12C13 12.5523 12.5523 13 12 13H6.28497L6.28497 1.5ZM5.03497 1.5H3V12C3 12.5523 3.44772 13 4 13H5.03497L5.03497 1.5ZM5.03497 14.5H4C2.61929 14.5 1.5 13.3807 1.5 12V1.5V0H3H13H14.5V1.5V12C14.5 13.3807 13.3807 14.5 12 14.5H6.28497V15V15.625H5.03497V15V14.5ZM8.505 3.375H9.13H10.13H10.755V4.625H10.13H9.13H8.505V3.375ZM9.13 6.375H8.505V7.625H9.13H10.13H10.755V6.375H10.13H9.13Z"
-                  fill="currentColor"></path></svg
-              >Planes</a
-            >
-            <a
-              href="#faq"
-              class="flex flex-row items-center hover:bg-white hover:bg-opacity-10 hover:border-[1px] border-[#3f3f3f] px-5 py-1 rounded-xl transition-colors duration-200"
-            >
-              <svg
-                class="mr-3"
-                data-testid="geist-icon"
-                width="18"
-                height="18"
-                stroke-linejoin="round"
-                viewBox="0 0 16 16"
-                style="color: currentcolor;"
-                ><path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M7.9925 0C4.95079 0 2.485 2.46579 2.485 5.5075V8.22669C2.485 8.77318 2.21321 9.28388 1.75992 9.58912L1.33108 9.8779L1 10.1009V10.5V11.25V12H1.75H14.25H15V11.25V10.5V10.0986L14.666 9.87596L14.2306 9.58565C13.7741 9.28137 13.5 8.76913 13.5 8.22059V5.5075C13.5 2.46579 11.0342 0 7.9925 0ZM3.985 5.5075C3.985 3.29422 5.77922 1.5 7.9925 1.5C10.2058 1.5 12 3.29422 12 5.5075V8.22059C12 9.09029 12.36 9.91233 12.9801 10.5H3.01224C3.62799 9.91235 3.985 9.09303 3.985 8.22669V5.5075ZM10.7486 13.5H9.16778L9.16337 13.5133C9.09591 13.716 8.94546 13.9098 8.72067 14.0501C8.52343 14.1732 8.27577 14.25 8.00002 14.25C7.72426 14.25 7.47661 14.1732 7.27936 14.0501C7.05458 13.9098 6.90412 13.716 6.83666 13.5133L6.83225 13.5H5.25143L5.41335 13.9867C5.60126 14.5516 5.99263 15.0152 6.48523 15.3226C6.92164 15.5949 7.44461 15.75 8.00002 15.75C8.55542 15.75 9.07839 15.5949 9.5148 15.3226C10.0074 15.0152 10.3988 14.5516 10.5867 13.9867L10.7486 13.5Z"
-                  fill="currentColor"></path></svg
-              >
-              FAQ</a
-            >
-            <a
-              href="#contactanos"
-              class="flex flex-row items-center hover:bg-white hover:bg-opacity-10 hover:border-[1px] border-[#3f3f3f] px-5 py-1 rounded-xl transition-colors duration-200"
-            >
-              <svg
-                class="mr-3"
-                data-testid="geist-icon"
-                width="18"
-                height="18"
-                stroke-linejoin="round"
-                viewBox="0 0 16 16"
-                style="color: currentcolor;"
-                ><path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M14.5 8C14.5 11.5899 11.5899 14.5 8 14.5C4.41015 14.5 1.5 11.5899 1.5 8C1.5 4.41015 4.41015 1.5 8 1.5C11.5899 1.5 14.5 4.41015 14.5 8ZM16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8ZM12.5925 3.40746L8.75908 4.93074L6.01936 6.0194L4.9307 8.75912L3.40742 12.5926L7.24089 11.0693L9.9806 9.98064L11.0693 7.24092L12.5925 3.40746ZM9.25 7.99999C9.25 8.69035 8.69036 9.24999 8 9.24999C7.30964 9.24999 6.75 8.69035 6.75 7.99999C6.75 7.30964 7.30964 6.74999 8 6.74999C8.69036 6.74999 9.25 7.30964 9.25 7.99999Z"
-                  fill="currentColor"></path></svg
-              >
-              Contáctanos</a
-            >
-          </ul>
-          
-      </div>
-        <button onclick="window.location.href='/auth'" class="ml-4 bg-white text-black px-8 h-10 rounded-xl text-[15px] border-[1px] border-[#3f3f3f]" style="font-family: 'Poppins', sans-serif; font-weight: 800;">
-          Acceder
-        </button> 
+          FAQ</a
+        >
+        <a
+          href="#contactanos"
+          class="flex flex-row items-center hover:bg-white hover:bg-opacity-10 hover:border-[1px] border-[#3f3f3f] px-5 py-1 rounded-xl transition-colors duration-200"
+        >
+          <svg
+            class="mr-3"
+            data-testid="geist-icon"
+            width="18"
+            height="18"
+            stroke-linejoin="round"
+            viewBox="0 0 16 16"
+            style="color: currentcolor;"
+            ><path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M14.5 8C14.5 11.5899 11.5899 14.5 8 14.5C4.41015 14.5 1.5 11.5899 1.5 8C1.5 4.41015 4.41015 1.5 8 1.5C11.5899 1.5 14.5 4.41015 14.5 8ZM16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8ZM12.5925 3.40746L8.75908 4.93074L6.01936 6.0194L4.9307 8.75912L3.40742 12.5926L7.24089 11.0693L9.9806 9.98064L11.0693 7.24092L12.5925 3.40746ZM9.25 7.99999C9.25 8.69035 8.69036 9.24999 8 9.24999C7.30964 9.24999 6.75 8.69035 6.75 7.99999C6.75 7.30964 7.30964 6.74999 8 6.74999C8.69036 6.74999 9.25 7.30964 9.25 7.99999Z"
+              fill="currentColor"></path></svg
+          >
+          Contáctanos</a
+        >
+      </ul>
+    </div>
+    <button
+      onclick="window.location.href='/auth'"
+      class="flex flex-row items-center ml-10 bg-white text-black px-8 h-10 rounded-xl text-[15px] hover:border-[1px] hover:border-[#3f3f3f] hover:bg-opacity-10 hover:text-white transition-colors duration-200"
+      style="font-family: 'Poppins', sans-serif; font-weight: 400;"
+    >
+    <img src="/" alt="">
+      <p class="pl-2">Acceder</p>
+    </button>
   </div>
 </header>

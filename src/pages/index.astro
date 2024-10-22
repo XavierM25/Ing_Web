@@ -5,7 +5,10 @@ import Header from '../layouts/Header/header.astro';
 import Planes from '../layouts/Home_Section/Planes/page.astro';
 import Carrousel from '../layouts/Home_Section/Carrousel/page.tsx';
 import Choose from '../layouts/Home_Section/Choose/page.astro';
+import FAQ from '../layouts/Home_Section/FAQ/page.astro'
 import Courses from '../layouts/Dashboard/Courses/page.astro';
+
+import PeruTime from '../components/PeruTime';
 ---
 
 <Layout title="GuimarBot - Educando y aprendiendo">
@@ -14,8 +17,15 @@ import Courses from '../layouts/Dashboard/Courses/page.astro';
       class="bg-custom-gradient from-[#36023b] via-[#18041a] to-black flex flex-col space-y-7"
     >
       <Header />
-      <Hero />
+      <PeruTime client:load />
+      <div class="relative h-[530px] animate-fadeInBlurHorizontal"> 
+        <div class="absolute inset-0 bg-center opacity-25 blur-md" style="background-image: url('/src/components/apps.png'); background-size: contain; background-repeat: no-repeat;"></div>
+        <div class="relative">
+          <Hero />
+        </div>
+      </div>
       <Choose />
+      <FAQ />
       <Carrousel />
       <Planes />
     </div>
