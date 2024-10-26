@@ -14,7 +14,7 @@ export default {
           'radial-gradient(circle 1050px at 70% 5%, var(--tw-gradient-stops))',
       },
       animation: {
-        fadeInBlurHorizontal: 'fadeInBlurHorizontal 1s ease-out',
+        fadeInBlurHorizontal: 'fadeInBlurHorizontal 1s  ease-out',
         scroll: 'scroll 40s linear infinite',
       },
       keyframes: {
@@ -35,5 +35,5 @@ export default {
       },
     },
   },
-  plugins: [nextui(), animations],
+  plugins: ['tailwind-scrollbar', nextui(), animations],
 };

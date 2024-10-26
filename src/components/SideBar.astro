@@ -1,0 +1,41 @@
+---
+const menuItems = [
+  { name: 'Inicio', icon: '🏠', path: '/dashboard/' },
+  { name: 'Perfil', icon: '👤', path: '/dashboard/perfil' },
+  { name: 'Cursos', icon: '📚', path: '/dashboard/cursos' },
+  { name: 'Logros', icon: '🏆', path: '/dashboard/logros' },
+  { name: 'Favoritos', icon: '⭐', path: '/dashboard/favoritos' },
+  { name: 'Carrito', icon: '🛒', path: '/dashboard/carrito' },
+  { name: 'Postula a beca', icon: '📝', path: '/dashboard/beca' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<aside
+  class="bg-black w-64 min-h-screen p-4 backdrop-blur   fixed left-0 top-0"
+>
+  <div class="flex items-center gap-2 mb-8">
+    <img src="/src/components/cabezabot.svg" class="w-10" alt="">
+    <h1 class="text-2xl text-white" style="font-family: Inter, sans-serif; font-weight: 800;">GuimarBot</h1>
+  </div>
+
+  <nav class="space-y-2">
+    {
+      menuItems.map((item) => (
+        <a
+          href={item.path}
+          class={`flex items-center gap-3 px-4 py-2 rounded-lg transition-colors ${
+            currentPath === item.path
+              ? 'bg-white bg-opacity-10 border-[1px] border-[#3f3f3f] text-white text-[22px]'
+              : ' border-[#3f3f3f] text-white text-[22px] hover:bg-white hover:bg-opacity-20'
+          }`}
+          
+        >
+          <span>{item.icon}</span>
+          <span class="text-sm font-medium"  style="font-family: 'Poppins', sans-serif; font-weight: 700;">{item.name}</span>
+        </a>
+      ))
+    }
+  </nav>
+</aside>

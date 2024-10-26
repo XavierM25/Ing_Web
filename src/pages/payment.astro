@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CreditCard from '../layouts/PaymentMethod/payment.astro';
+import ModalController from '../components/ModalController';
+import "../layouts/styles/global.css"
+
+const pedido = [
+  {
+    pedido: 'Suscripción experto',
+    students: '4 estudiantes',
+    tiempo: 'Anual',
+    image:
+      '/src/layouts/Home_Section/Courses/components/images/desarrolloweb.png',
+    description:
+      'Accede a todos los cursos, rutas, talleres y certificados de GuimarBot con la suscripción experto',
+    price: 'S/. 500',
+  },
+];
+const types = ['Paypal', 'Tarjeta de crédito'];
+---
+
+<Layout title="Carrito de compras">
+  <main class="w-full items-center justify-center flex pt-28  bg-black">
+    <div
+      class="text-white text-start h-full w-[1400px] animate-fadeInBlurHorizontal"
+    >
+      <h1
+        class="text-[40px] mb-4"
+        style="font-family: Poppins, sans-serif; font-weight: 700;"
+      >
+        Resumen de tu pedido
+      </h1>
+      <form class="flex flex-row space-x-5">
+        {
+          pedido.map((pedido) => (
+            <div class="bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] backdrop-blur w-[935px] h-[325px] rounded-2xl">
+              <div class="m-4 pl-2 items-center space-x-5 flex flex-row">
+                <h1
+                  class="text-[18px]"
+                  style="font-family: Poppins, sans-serif; font-weight: 600;"
+                >
+                  {pedido.pedido}
+                </h1>
+                <div
+                  class="space-x-2 flex flex-row"
+                  style="font-family: Poppins, sans-serif; font-weight: 300;"
+                >
+                  <p class="bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] items-center inline-flex px-4 py-[4px] rounded-full flex-row text-[13px]">
+                    {pedido.students}
+                  </p>
+                  <p class="bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] items-center inline-flex px-4 py-[4px] rounded-full flex-row text-[13px]">
+                    {pedido.tiempo}
+                  </p>
+                </div>
+              </div>
+              <div class="grid grid-cols-3 grid-rows-1 gap-4 m-6">
+                <div class="col-span-3">
+                  <div class="grid grid-cols-6 grid-rows-1 gap-4">
+                    <img
+                      src="/src/layouts/Dashboard/Courses/images/desarrolloweb.png"
+                      class=" col-span-3 rounded-lg"
+                      alt=""
+                    />
+                    <p
+                      class="col-span-4 col-start-4 text-[14px] opacity-75 min-w-96"
+                      style="font-family: Inter, sans-serif; font-weight: 300;"
+                    >
+                      {pedido.description}
+                    </p>
+                    <h1
+                      class="col-span-8 col-start-8 mr-4 justify-end flex"
+                      style="font-family: Poppins, sans-serif; font-weight: 500;"
+                    >
+                      {pedido.price}
+                    </h1>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex flex-row px-6 justify-between w-full  rounded-b-xl"
+                style="font-family: Inter, sans-serif;"
+              >
+                <a
+                  href=""
+                  class="text-[16px] text-[#0169e1]"
+                  style="font-weight: 400;"
+                >
+                  ¿Necesitas ayuda en tu pedido?
+                </a>
+                <p class="mr-4 text-[16px]" style="font-weight: 600;">
+                  Total {pedido.price}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+        {/* Segunda tarjeta - opciones de compra */}
+        {pedido.map((pedido) => (
+          <div class="bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] backdrop-blur w-[450px] h-[325px] rounded-2xl">
+            <h1
+              class="text-[24px] text-[#f7c124] mt-10 text-center"
+              style="font-family: Poppins, sans-serif; font-weight: 600;"
+            >
+              {pedido.pedido}
+            </h1>
+            <h1
+              class="text-center text-[30px] mb-2"
+              style="font-family: Inter, sans-serif; font-weight: 900;"
+            >
+              {pedido.price}
+            </h1>
+
+            <a
+              href=""
+              class="text-[16px] text-[#0169e1] justify-center flex mb-8"
+              style="font-family: Inter, sans-serif; font-weight: 400;"
+            >
+              ¿Tienes un cupón?
+            </a>
+
+            <div class="space-y-3">
+              <ModalController 
+                price={pedido.price} 
+                title={pedido.pedido} 
+                client:load 
+              />
+
+              <button class="flex flex-row px-[78px] py-2 bg-black bg-opacity-5 border-[#3f3f3f] border-[1px] backdrop-blur rounded-lg mx-auto">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 7v13m0-13H8.464c-.52 0-1.02-.21-1.389-.586A2.02 2.02 0 0 1 6.5 5c0-.53.207-1.04.575-1.414A1.95 1.95 0 0 1 8.465 3C11.214 3 12 7 12 7m0 0h3.536c.52 0 1.02-.21 1.389-.586.368-.375.575-.884.575-1.414s-.207-1.04-.575-1.414A1.95 1.95 0 0 0 15.535 3C12.786 3 12 7 12 7m-7 5h14v5.8c0 1.12 0 1.68-.218 2.108a2 2 0 0 1-.874.874C17.48 21 16.92 21 15.8 21H8.2c-1.12 0-1.68 0-2.108-.218a2 2 0 0 1-.874-.874C5 19.48 5 18.92 5 17.8zm-.4 0h14.8c.56 0 .84 0 1.054-.109a1 1 0 0 0 .437-.437C21 11.24 21 10.96 21 10.4V8.6c0-.56 0-.84-.109-1.054a1 1 0 0 0-.437-.437C20.24 7 19.96 7 19.4 7H4.6c-.56 0-.84 0-1.054.109a1 1 0 0 0-.437.437C3 7.76 3 8.04 3 8.6v1.8c0 .56 0 .84.109 1.054a1 1 0 0 0 .437.437C3.76 12 4.04 12 4.6 12" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p
+                  class="ml-2"
+                  style="font-family: Inter, sans-serif; font-weight: 500;"
+                >
+                  Comprar como regalo
+                </p>
+              </button>
+            </div>
+          </div>
+        ))}
+      </form>
+      <CreditCard />
+    </div>
+  </main>
+</Layout>

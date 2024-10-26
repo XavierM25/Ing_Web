@@ -1,31 +1,116 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import DashboardLayout from '../../layouts/DashboardLayout.astro';
+
+const dashboardData = {
+  cursosActivos: 3,
+  progresoTotal: 75,
+  certificados: 5,
+  becasPendientes: 1,
+  cursosCarrito: 2,
+  cursosFavoritos: 2,
+  proximaClase: "JavaScript Avanzado - 15:00",
+  ultimosLogros: [
+    { titulo: "Racha Perfecta", descripcion: "7 días consecutivos" },
+    { titulo: "Primera Certificación", descripcion: "Desarrollo Web Frontend" }
+  ]
+};
 ---
 
-<Layout title ="Guimarbot: Dashboard"> <div class="dashboard-container"> 
-    <aside class="sidebar"> 
-        <nav> 
-            <ul> 
-                <li>
-                    <a href="/dashboard" aria-current="page">Inicio</a>
-                </li> 
-                <li>
-                    <a href="/dashboard/profile">Perfil</a>
-                </li> 
-                <li>
-                    <a href="/dashboard/settings">Configuración</a>
-                </li> 
-                <li>
-                    <a href="/dashboard/analytics">Análisis</a>
-                </li> 
-            </ul> 
-        </nav> 
-    </aside> 
-    <section class="content">  <slot /> 
-    </section> 
-</Layout> 
-<style> 
-    .dashboard-container { display: flex; } 
-    .sidebar { width: 200px; background-color: #f0f0f0; padding: 10px; } 
-    .content { flex: 1; padding: 20px; } 
-</style>
+<DashboardLayout title="Dashboard">
+  <div class="p-8">
+    <div class="flex items-center justify-between mb-8">
+      <h1 class="text-2xl font-bold text-gray-800">Panel Principal</h1>
+      <p class="text-gray-600">Bienvenido de nuevo, David 👋</p>
+    </div>
+
+    <!-- Grid de estadísticas principales -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="bg-white p-6 rounded-xl shadow-sm">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm text-gray-600">Cursos Activos</p>
+            <h3 class="text-2xl font-bold text-gray-800">{dashboardData.cursosActivos}</h3>
+          </div>
+          <div class="text-3xl">📚</div>
+        </div>
+        <div class="mt-4">
+          <div class="h-2 bg-gray-200 rounded-full">
+            <div class="h-full bg-purple-500 rounded-full" style={`width: ${dashboardData.progresoTotal}%`}></div>
+          </div>
+          <p class="text-sm text-gray-600 mt-2">Progreso general: {dashboardData.progresoTotal}%</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-sm">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm text-gray-600">Certificados</p>
+            <h3 class="text-2xl font-bold text-gray-800">{dashboardData.certificados}</h3>
+          </div>
+          <div class="text-3xl">🏆</div>
+        </div>
+        <p class="text-sm text-green-600 mt-4">+2 este mes</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-sm">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm text-gray-600">En Carrito</p>
+            <h3 class="text-2xl font-bold text-gray-800">{dashboardData.cursosCarrito}</h3>
+          </div>
+          <div class="text-3xl">🛒</div>
+        </div>
+        <button class="mt-4 text-sm text-purple-600 hover:text-purple-700">Ver carrito →</button>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-sm">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm text-gray-600">Favoritos</p>
+            <h3 class="text-2xl font-bold text-gray-800">{dashboardData.cursosFavoritos}</h3>
+          </div>
+          <div class="text-3xl">⭐</div>
+        </div>
+        <button class="mt-4 text-sm text-purple-600 hover:text-purple-700">Ver favoritos →</button>
+      </div>
+    </div>
+
+    <!-- Secciones inferiores -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Próxima clase -->
+      <div class="bg-white p-6 rounded-xl shadow-sm">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">Próxima Clase</h3>
+        <div class="flex items-center gap-4">
+          <div class="bg-purple-100 p-3 rounded-lg">
+            <span class="text-2xl">📅</span>
+          </div>
+          <div>
+            <p class="font-medium text-gray-800">{dashboardData.proximaClase}</p>
+            <p class="text-sm text-gray-600">Hoy</p>
+          </div>
+          <button class="ml-auto bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600">
+            Unirse
+          </button>
+        </div>
+      </div>
+
+      <!-- Últimos logros -->
+      <div class="bg-white p-6 rounded-xl shadow-sm">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">Últimos Logros</h3>
+        <div class="space-y-4">
+          {dashboardData.ultimosLogros.map((logro) => (
+            <div class="flex items-center gap-4">
+              <div class="bg-yellow-100 p-3 rounded-lg">
+                <span class="text-2xl">🏆</span>
+              </div>
+              <div>
+                <p class="font-medium text-gray-800">{logro.titulo}</p>
+                <p class="text-sm text-gray-600">{logro.descripcion}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</DashboardLayout>

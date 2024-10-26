@@ -1,0 +1,39 @@
+---
+import Layout from './Layout.astro';
+import Sidebar from '../components/SideBar.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<Layout title={title}>
+  <div class="flex min-h-screen bg-gray-50">
+    <Sidebar />
+    <main id="mainContent" class="flex-1 ml-64 transition-all duration-300">
+      <slot />
+    </main>
+  </div>
+</Layout>
+
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const mainContent = document.getElementById('mainContent');
+
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+        const sidebarWidth = sidebar?.classList.contains('w-16') ? '4rem' : '16rem';
+        if (mainContent) {
+          mainContent.style.marginLeft = sidebarWidth;
+        }
+      }
+    });
+  });
+
+  if (sidebar) {
+    observer.observe(sidebar, { attributes: true });
+  }
+</script>

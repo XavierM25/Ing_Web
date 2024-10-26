@@ -34,6 +34,7 @@ import { GeistSans } from 'geist/font/sans';
         >
         <a
           href="#planes"
+          (click)="preventReload($event)"
           class="flex flex-row items-center hover:bg-white hover:bg-opacity-10 hover:border-[1px] border-[#3f3f3f] px-5 py-1 rounded-xl transition-colors duration-200"
         >
           <svg
@@ -98,7 +99,7 @@ import { GeistSans } from 'geist/font/sans';
       class="flex flex-row items-center ml-10 bg-white text-black px-8 h-10 rounded-xl text-[15px] hover:border-[1px] hover:border-[#3f3f3f] hover:bg-opacity-10 hover:text-white transition-colors duration-200"
       style="font-family: 'Poppins', sans-serif; font-weight: 400;"
     >
-    <img src="/" alt="">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right-circle"><circle cx="12" cy="12" r="10"/><path d="m12 16 4-4-4-4m-4 4h8"/></svg>
       <p class="pl-2">Acceder</p>
     </button>
   </div>

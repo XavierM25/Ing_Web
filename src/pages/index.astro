@@ -6,6 +6,7 @@ import Planes from '../layouts/Home_Section/Planes/page.astro';
 import Carrousel from '../layouts/Home_Section/Carrousel/page.tsx';
 import Choose from '../layouts/Home_Section/Choose/page.astro';
 import FAQ from '../layouts/Home_Section/FAQ/page.astro'
+import Footer from '../layouts/Footer/footer';
 import Courses from '../layouts/Dashboard/Courses/page.astro';
 
 import PeruTime from '../components/PeruTime';
@@ -18,16 +19,23 @@ import PeruTime from '../components/PeruTime';
     >
       <Header />
       <PeruTime client:load />
-      <div class="relative h-[530px] animate-fadeInBlurHorizontal"> 
-        <div class="absolute inset-0 bg-center opacity-25 blur-md" style="background-image: url('/src/components/apps.png'); background-size: contain; background-repeat: no-repeat;"></div>
-        <div class="relative">
-          <Hero />
+      <div id="inicio" class="w-full items-center justify-center">
+        <div class="relative h-[550px] animate-fadeInBlurHorizontal">
+          <div class="absolute inset-0 bg-center opacity-25 blur-md " style="background-image: url('/src/components/apps.png'); background-size: contain; background-repeat: no-repeat;"></div>
+          <div class="relative">
+            <Hero />
+          </div>
         </div>
       </div>
       <Choose />
-      <FAQ />
+      <div id="FAQ" class="w-full items-center justify-center">
+        <FAQ />
+      </div>
       <Carrousel />
-      <Planes />
+      <div id="planes" class="w-full items-center justify-center">
+        <Planes />
+      </div>
+      <Footer client:load/>
     </div>
   </main>
 </Layout>
