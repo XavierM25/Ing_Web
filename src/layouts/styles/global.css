@@ -35,3 +35,9 @@
 .animate-fadeIn {
   animation: fadeIn 0.2s ease-out;
 }
+
+.checkbox-label-white {
+  color: white;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+}

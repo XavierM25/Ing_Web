@@ -1,21 +1,26 @@
+---
+import Checbox from '../components/Checkbox';
+import Divider from '../components/Divider';
+---
+
 <div class="flex flex-col pt-2 animate-fade-in-right">
-  <img src="/src/components/cabezabot.svg" class="w-20 mx-auto" alt="">
+  <img src="/src/components/cabezabot.svg" class="w-16 mx-auto" alt="" />
   <h1
     class="text-[16px] text-center text-[white] my-3"
-    style="font-family: Inter, sans-serif; font-weight: 400;"
+    style="font-family: Inter, sans-serif; font-weight: 600;"
   >
     Inicia sesión con tu cuenta
   </h1>
 
-  <form class="flex flex-row mb-4 justify-between items-center mt-3">
+<form class="flex flex-row mb-4 justify-between items-center mt-2">
     <button
-      class="bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] rounded-2xl items-center justify-center px-4 py-3 shadow-md flex flex-row text-white text-[12px]" style="font-family: Inter, sans-serif; font-weight: 700;"
+      class="bg-white bg-opacity-5 rounded-xl items-center justify-center px-[18px] py-4 shadow-md flex flex-row text-white text-[12px] hover:bg-opacity-15 transition-colors duration-300"
+      style="font-family: Poppins, sans-serif; font-weight: 600;"
     >
-    
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="25"
-        height="25"
+        width="17"
+        height="17"
         viewBox="0 0 256 262"
         preserveAspectRatio="xMidYMid"
         ><path
@@ -31,12 +36,13 @@
       <p class="ml-3">Iniciar sesión con Google</p>
     </button>
     <button
-      class="bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] rounded-2xl items-center justify-center px-4 py-3 shadow-md flex flex-row text-white text-[12px]" style="font-family: Inter, sans-serif; font-weight: 700;"
+      class="bg-white bg-opacity-5 rounded-xl items-center justify-center px-[18px] py-4 shadow-md flex flex-row text-white text-[12px] hover:bg-opacity-15 transition-colors duration-300"
+      style="font-family: Poppins, sans-serif; font-weight: 600;"
     >
       <svg
         viewBox="0 0 256 250"
-        width="25"
-        height="25"
+        width="20"
+        height="20"
         fill="#fff"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMidYMid"
@@ -46,16 +52,16 @@
       >
       <p class="ml-3">Iniciar sesión con GitHub</p>
     </button>
-    
-  </form>
+</form>
+<Divider />
 </div>
-<form class="flex flex-col space-y-4 animate-fade-in-right mt-3 mb-3">
+<form class="flex flex-col space-y-2 animate-fade-in-right mt-3 mb-3">
   <article
     class="w-full bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] rounded-xl shadow-md"
   >
-    <div class="flex flex-col m-3 text-[#52525b]">
+    <div class="flex flex-col m-3 text-[#52525b] h-[30px]">
       <h1
-        class="text-[13px] opacity-75 text-white"
+        class="text-[12px] opacity-75 text-white -mt-[5px]" 
         style="font-family: Poppins, sans-serif; font-weight: 700;"
       >
         Correo
@@ -72,9 +78,9 @@
   <article
     class="w-full bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] rounded-xl shadow-md"
   >
-    <div class="flex flex-col m-3 text-[#52525b]">
+    <div class="flex flex-col m-3 text-[#52525b] h-[30px]">
       <h1
-        class="text-[13px] opacity-75 text-white"
+        class="text-[12px] opacity-75 text-white -mt-[5px]"
         style="font-family: Poppins, sans-serif; font-weight: 700;"
       >
         Contraseña
@@ -89,7 +95,8 @@
     </div>
   </article>
 </form>
-<form class="animate-fade-in-right">
+<form class="flex flex-row items-center justify-between animate-fade-in-right mt-4">
+  <Checbox client:load />
   <a
     class="text-[#0169e1] text-[13px] text-end"
     href=""
@@ -98,6 +105,6 @@
   >
 </form>
 <button
-  class="hover:bg-black hover:text-white bg-white bg-opacity-5 border-[#3f3f3f] text-white border-[1px] py-2 w-full rounded-2xl mt-8 transition duration-300 shadow-md animate-fade-in-right"
+  class="hover:bg-black hover:text-white bg-white bg-opacity-5 border-[#3f3f3f] text-white text-[14px] border-[1px] py-2 w-full rounded-2xl mt-8 transition duration-300 shadow-md animate-fade-in-right"
   style="font-family: Poppins, sans-serif;">Iniciar Sesión</button
 >
