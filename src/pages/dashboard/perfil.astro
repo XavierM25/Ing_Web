@@ -2,11 +2,10 @@
 import DashboardLayout from '../../layouts/DashboardLayout.astro';
 import ProfileImageUpload from './components/ProfileImageUpload';
 
-// Aquí podrías obtener los datos del usuario de tu base de datos
 const userData = {
-  nombre: "David Montaño",
-  rol: "Estudiante",
-  imagen: "" // URL de la imagen actual del usuario
+  nombre: 'David Montaño',
+  rol: 'Estudiante',
+  imagen: '',
 };
 ---
 
@@ -14,19 +13,18 @@ const userData = {
   <div class="p-8">
     <h1 class="text-3xl font-bold mb-8 text-gray-800">Mi Perfil</h1>
     <div class="bg-white border-[#cbcbcb] border-1 rounded-xl p-6 max-w-2xl">
-      <div class="flex items-center gap-8">
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
         <ProfileImageUpload
           client:load
           currentImage={userData.imagen}
-          onImageChange={async (newImageUrl) => {
-            // Aquí deberías actualizar la URL de la imagen en tu base de datos
-            console.log('Nueva URL de imagen:', newImageUrl);
-            // Ejemplo: await updateUserProfileImage(userId, newImageUrl);
-          }}
         />
         <div>
-          <h2 class="text-2xl text-[#222] font-bold font-poppins">{userData.nombre}</h2>
-          <p class="text-[#222] opacity-50 mt-1 font-semibold">{userData.rol}</p>
+          <h2 class="text-2xl text-[#222] font-bold font-poppins text-center md:text-left">
+            {userData.nombre}
+          </h2>
+          <p class="text-[#222] opacity-50 mt-1 font-semibold text-center md:text-left">
+            {userData.rol}
+          </p>
         </div>
       </div>
     </div>
