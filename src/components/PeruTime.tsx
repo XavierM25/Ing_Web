@@ -25,7 +25,7 @@ const PeruTime = () => {
   const [hours, minutes, seconds] = timeStr.split(':').map(num => formatNumber(parseInt(num)));
 
   return (
-    <div className="fixed top-4 right-4  px-3 py-2 text-white" style={{ fontFamily: 'Inter, sans-serif' }}>
+    <div className="fixed top-4 right-4  px-3 py-2 text-[#222]" style={{ fontFamily: 'Inter, sans-serif' }}>
       <p className="text-[15px]">
         {hours}:{minutes}:{seconds}
       </p>

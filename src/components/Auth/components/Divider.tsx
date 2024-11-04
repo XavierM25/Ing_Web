@@ -3,8 +3,8 @@ import React from 'react';
 const Divider = ({ text = "O usa Email" }) => {
   return (
     <div className="relative flex items-center justify-center w-full my-2">
-      <div className="absolute w-full border-t border-gray-300/20"></div>
-      <div className="relative px-6 bg-[#0d0d0d] text-sm text-gray-400" style={{ fontFamily: 'Inter, sans-serif' }}>
+      <div className="absolute w-full border-t border-[#bfbfbf]"></div>
+      <div className="relative px-6 bg-[white] text-sm text-[#222]" style={{ fontFamily: 'Onest, sans-serif' }}>
         {text}
       </div>
     </div>

@@ -32,10 +32,10 @@ const Accordion = () => {
   return (
     <div className="w-full max-w-2xl mx-auto rounded-2xl overflow-hidden">
       {accordionItems.map((item, index) => (
-        <div key={index} className="border-b border-zinc-800 last:border-none">
+        <div key={index} className="border-b border-[#bfbfbf] last:border-none">
           <button
             onClick={() => toggleAccordion(index)}
-            className="w-full px-6 py-8 flex justify-between items-center text-left text-gray-200"
+            className="w-full px-6 py-8 flex justify-between items-center text-left text-[#222]"
           >
             <span className="font-bold font-[Poppins]">
               {item.title}
@@ -45,21 +45,7 @@ const Accordion = () => {
                 openIndex === index ? '-rotate-90' : ''
               }`}
             >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M14.9991 19L9.83911 14C9.56672 13.7429 9.34974 13.433 9.20142 13.0891C9.0531 12.7452 8.97656 12.3745 8.97656 12C8.97656 11.6255 9.0531 11.2548 9.20142 10.9109C9.34974 10.567 9.56672 10.2571 9.83911 10L14.9991 5"
-                  stroke="#ffffff"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M14.9991 19L9.83911 14C9.56672 13.7429 9.34974 13.433 9.20142 13.0891C9.0531 12.7452 8.97656 12.3745 8.97656 12C8.97656 11.6255 9.0531 11.2548 9.20142 10.9109C9.34974 10.567 9.56672 10.2571 9.83911 10L14.9991 5" stroke="#222" stroke-linecap="round"></path> </g></svg>
             </span>
           </button>
 
@@ -68,7 +54,7 @@ const Accordion = () => {
               openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
             }`}
           >
-            <p className="px-6 pb-4 text-gray-300 leading-relaxed font-light font-[Inter]">
+            <p className="px-6 pb-4 text-[#222] leading-relaxed" style={{fontFamily: 'Onest, sans-serif', fontWeight: '300'}}>
               {item.content}
             </p>
           </div>

@@ -1,48 +1,123 @@
 ---
 import DashboardLayout from '../../layouts/DashboardLayout.astro';
+import CourseCard from '../../pages/dashboard/resources/Courses/components/CourseCard.astro';
+import CustomDropdown from './resources/Courses/components/ButtonDropdown';
 
 const userData = {
-  nombre: "David Montaño",
-  rol: "Estudiante",
+  nombre: 'David Montaño',
+  rol: 'Estudiante',
   cursos: 12,
-  certificados: 5
+  certificados: 5,
 };
+
+const options = [
+  { id: 'price_low_high', label: 'Precio: Menor a mayor', category: 'Precio' },
+  { id: 'price_high_low', label: 'Precio: Mayor a menor', category: 'Precio' },
+  { id: 'cat_math', label: 'Matemática', category: 'Categoría' },
+  { id: 'cat_art', label: 'Arte', category: 'Categoría' },
+  { id: 'cat_prog', label: 'Programación', category: 'Categoría' },
+  { id: 'cat_comm', label: 'Comunicación', category: 'Categoría' },
+  { id: 'cat_science', label: 'Ciencia', category: 'Categoría' },
+  { id: 'format_live', label: 'En vivo', category: 'Formato' },
+  { id: 'format_recorded', label: 'Grabado', category: 'Formato' },
+  { id: 'age_kids', label: 'Niños 6-11 años', category: 'Edad' },
+  { id: 'age_teens', label: 'Adolescentes 12-17 años', category: 'Edad' },
+  { id: 'age_adults', label: 'Adultos +18 años', category: 'Edad' },
+];
+
+const courses = [
+  {
+    id: 1,
+    title: 'Matemáticas Básicas',
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    image: '/src/pages/dashboard/resources/Courses/images/desarrolloweb.png',
+    ageGroup: 'Niños (6-11 años)',
+    price: 4,
+    categoryGroup: 'Matemática',
+    categoryRecord: 'Grabado',
+  },
+  {
+    id: 2,
+    title: 'Introducción a la Programación',
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    image: '/src/pages/dashboard/resources/Courses/images/python.jpg',
+    ageGroup: 'Adolescentes (12-17 años)',
+    price: 7,
+    categoryGroup: 'Programación',
+    categoryRecord: 'En vivo',
+  },
+  {
+    id: 3,
+    title: 'Arte y Creatividad',
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    image: '/src/pages/dashboard/resources/Courses/images/trading.jpg',
+    ageGroup: 'Adultos (+18 años)',
+    price: 3,
+    categoryGroup: 'Arte',
+    categoryRecord: 'Evento',
+  },
+];
 ---
 
 <DashboardLayout title="Cursos">
-  <div class="p-8">
-    <h1 class="text-3xl font-bold mb-8 text-gray-800">Mis Cursos</h1>
-    <div class="space-y-6">
-      <div class="bg-white rounded-xl shadow-lg p-6 flex items-center gap-6">
-        <div class="text-4xl">📚</div>
-        <div class="flex-1">
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Desarrollo Web Frontend</h3>
-          <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-            <div class="h-full bg-accent w-3/4 rounded-full"></div>
-          </div>
-          <p class="text-gray-600 mt-2">Progreso: 75%</p>
+  <div class="w-full items-center flex justify-center flex-col p-8">
+    <section class="border-[#bfbfbf] border-[1px] rounded-3xl w-full h-full overflow-hidden">
+      <header class="border-[#bfbfbf] border-b-[1px] bg-black bg-opacity-5 w-full h-[60px] flex flex-row items-center justify-around space-x">
+        <div class="bg-white border-[#bfbfbf] border-[1px] rounded-xl w-auto h-[40px] flex flex-row justify-between">
+          <input
+            type="text"
+            id="searchInput"
+            class="bg-transparent overflow-hidden w-[775px] h-full text-[#222] p-2 ml-4"
+            style="font-family: Inter, sans-serif; font-weight: 400; outline: none;"
+            placeholder="Buscar cursos..."
+          />
+          <button class="w-[40px] h-[40px] items-center flex flex-col justify-center mr-3">
+            <svg
+              width="25"
+              height="25"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.796 15.811 21 21m-3-10.5a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
         </div>
-      </div>
-      <div class="bg-white rounded-xl shadow-lg p-6 flex items-center gap-6">
-        <div class="text-4xl">💻</div>
-        <div class="flex-1">
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">JavaScript Avanzado</h3>
-          <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-            <div class="h-full bg-accent w-5/12 rounded-full"></div>
-          </div>
-          <p class="text-gray-600 mt-2">Progreso: 45%</p>
+        
+        <CustomDropdown 
+          client:load 
+          options={options}
+          onSelectionChange={(selected) => {
+            window.dispatchEvent(new CustomEvent('filtersChanged', {
+              detail: { filters: Array.from(selected) }
+            }));
+          }}
+        />
+        
+        <button
+          id="applyFilters"
+          class="bg-black bg-opacity-5 px-8 py-1 rounded-3xl border-[#bfbfbf] border-[1px] text-[#222] text-opacity-75 hover:bg-opacity-20 hover:text-opacity-85 transition-colors duration-400"
+          style="font-family: Inter, sans-serif; font-weight: 600;"
+        >
+          Aplicar
+        </button>
+      </header>
+      
+      <article class="m-8">
+        <div id="coursesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-4 gap-8">
+          {courses.map((course) => <CourseCard course={course} />)}
         </div>
-      </div>
-      <div class="bg-white rounded-xl shadow-lg p-6 flex items-center gap-6">
-        <div class="text-4xl">🎨</div>
-        <div class="flex-1">
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Diseño UI/UX</h3>
-          <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-            <div class="h-full bg-accent w-1/3 rounded-full bg-red-500"></div>
-          </div>
-          <p class="text-gray-600 mt-2">Progreso: 30%</p>
-        </div>
-      </div>
-    </div>
+      </article>
+    </section>
   </div>
 </DashboardLayout>
+

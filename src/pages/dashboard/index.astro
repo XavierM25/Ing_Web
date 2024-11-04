@@ -14,30 +14,32 @@ const dashboardData = {
     { titulo: "Primera Certificación", descripcion: "Desarrollo Web Frontend" }
   ]
 };
+
+import PeruTime from '../../components/PeruTime';
 ---
 
 <DashboardLayout title="Dashboard">
-  <div class="p-8">
-    <div class="flex items-center justify-between mb-8">
-      <h1 class="text-2xl font-bold text-gray-800">Panel Principal</h1>
-      <p class="text-gray-600">Bienvenido de nuevo, David 👋</p>
+  <div class="p-8" >
+    <div class="flex items-center justify-between mb-8" >
+      <h1 class="text-2xl font-bold text-[#0a0a0a]" style="font-weight: 700;">Panel Principal</h1>
+      <PeruTime client:load />
+      <p class="text-[#0a0a0a]" style="font-weight: 500;">Bienvenido de nuevo, David 👋</p>
     </div>
 
-    <!-- Grid de estadísticas principales -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-      <div class="bg-white p-6 rounded-xl shadow-sm">
+      <div class="bg-white bg-opacity-[0.035] border-[1px] border-[#eaeaea] p-6 rounded-xl shadow-sm">
         <div class="flex items-center justify-between">
           <div>
-            <p class="text-sm text-gray-600">Cursos Activos</p>
-            <h3 class="text-2xl font-bold text-gray-800">{dashboardData.cursosActivos}</h3>
+            <p class="text-[16px] text-[#0a0a0a] mb-2 font-onest" style="font-weight: 600;">Cursos Activos</p>
+            <h3 class="text-2xl text-[#0a0a0a]" style="font-weight: 600; font-family: Poppins, sans-serif;">{dashboardData.cursosActivos}</h3>
           </div>
           <div class="text-3xl">📚</div>
         </div>
         <div class="mt-4">
-          <div class="h-2 bg-gray-200 rounded-full">
-            <div class="h-full bg-purple-500 rounded-full" style={`width: ${dashboardData.progresoTotal}%`}></div>
+          <div class="h-1 bg-gray-200 rounded-full">
+            <div class="h-full bg-[#e83eba] rounded-full" style={`width: ${dashboardData.progresoTotal}%`}></div>
           </div>
-          <p class="text-sm text-gray-600 mt-2">Progreso general: {dashboardData.progresoTotal}%</p>
+          <p class="text-sm text-[#0a0a0a] mt-2 opacity-50" style="font-weight: 400; font-family: Poppins, sans-serif;">Progreso general: {dashboardData.progresoTotal}%</p>
         </div>
       </div>
 
@@ -49,7 +51,7 @@ const dashboardData = {
           </div>
           <div class="text-3xl">🏆</div>
         </div>
-        <p class="text-sm text-green-600 mt-4">+2 este mes</p>
+        <p class="text-sm text-[#346f2d] mt-4">+2 este mes</p>
       </div>
 
       <div class="bg-white p-6 rounded-xl shadow-sm">

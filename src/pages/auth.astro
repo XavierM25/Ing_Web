@@ -8,11 +8,11 @@ import BackButton from "../components/Auth/BackButton";
 
 <Layout title="Guimarbot: Autenticación">
     <BackButton client:load />
-    <main class="mx-auto w-1/4 h-full shadow-lg animate-fade-in-dow pt-12">
-        <div class="p-4 bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] backdrop-blur rounded-3xl">
+    <main class="mx-auto w-1/4 h-full animate-fade-in-dow pt-12">
+        <div class="p-4 bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] backdrop-blur rounded-3xl">
             <div class="w-full flex flex-row mb-4" style="font-family: Inter, sans-serif;">
-                <Button id="btnLogin" radius ="none" className="bg-white bg-opacity-5 border-[#3f3f3f] text-white border-[1px] border-l-[1px] p-2 rounded-s-2xl w-full" client:visible>Iniciar sesión</Button>
-                <Button id="btnRegister" radius ="none" className="bg-white bg-opacity-5 border-[#3f3f3f] text-white border-[1px] p-2 rounded-e-2xl w-full" client:visible>Registrarse</Button>
+                <Button id="btnLogin" radius ="none" className="bg-white bg-opacity-5 border-[#bfbfbf] text-[#222] border-[1px] border-l-[1px] p-2 rounded-s-2xl w-full" client:visible>Iniciar sesión</Button>
+                <Button id="btnRegister" radius ="none" className="bg-white bg-opacity-5 border-[#bfbfbf] text-[#222] border-[1px] p-2 rounded-e-2xl w-full" client:visible>Registrarse</Button>
             </div>
             <div id="loginContainer" class="w-full">
                 <Login />

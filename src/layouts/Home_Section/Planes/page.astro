@@ -1,19 +1,29 @@
 ---
 import "../../styles/global.css";
-import { Button } from "@nextui-org/react";
 import { GeistSans } from "geist/font/sans";
 
-const features = [
-  "Certificado digital",
-  "Contenido profesional",
-  "Eventos exclusivos organizado por GuimarBot.",
-  "Accede a precios especiales en talleres y cursos especializados.",
-  "Monitorea tu progreso con evaluaciones interactivas y recibe retroalimentación constante.",
-  "Atención individualizada a través de foros y chat con nuestros expertos.",
-  "Realiza proyectos reales para reforzar lo aprendido y construir tu portafolio profesional.",
+interface PlanFeature {
+  text: string;
+}
+
+interface Plan {
+  name: string;
+  students: string;
+  price: string;
+  color: string;
+}
+
+const features: PlanFeature[] = [
+  { text: "Certificado digital" },
+  { text: "Contenido profesional" },
+  { text: "Eventos exclusivos organizado por GuimarBot." },
+  { text: "Accede a precios especiales en talleres y cursos especializados." },
+  { text: "Monitorea tu progreso con evaluaciones interactivas y recibe retroalimentación constante." },
+  { text: "Atención individualizada a través de foros y chat con nuestros expertos." },
+  { text: "Realiza proyectos reales para reforzar lo aprendido y construir tu portafolio profesional." },
 ];
 
-const plans = [
+const plans: Plan[] = [
   {
     name: "Básico",
     students: "1 estudiante",
@@ -35,16 +45,16 @@ const plans = [
 ];
 ---
 
-<div class="w-full items-center flex justify-center flex-col pb-32 shadow-lg animate-fadeInBlurHorizontal">
-  <h1 class="text-[65px] text-white pt-24" style="font-family: Inter, sans-serif; font-weight: 900;">Planes</h1>
-  <p class="text-[25px] text-white opacity-50 pb-16" style="font-family: Inter, sans-serif; font-weight: 400;">¡Escoge tu plan de suscripción a la medida que desees!</p>
+<div class="w-full items-center flex justify-center flex-col pb-32 animate-fadeInBlurHorizontal">
+  <h1 class="text-[65px] text-[#222] pt-24" style="font-family: Inter, sans-serif; font-weight: 900;">Planes</h1>
+  <p class="text-[25px] text-[#222] opacity-50 pb-16" style="font-family: Inter, sans-serif; font-weight: 400;">¡Escoge tu plan de suscripción a la medida que desees!</p>
   <div class="flex flex-row space-x-10">
     {plans.map((plan) => (
       <div
         id={`card-${plan.name}`}
-        class="h-[675px] w-[450px] bg-white bg-opacity-5 border-[#3f3f3f] border-[1px] backdrop-blur rounded-3xl hover:scale-105 transition-transform duration-400"
+        class="h-[675px] w-[450px] bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] backdrop-blur rounded-3xl transition-transform duration-400"
       >
-        <span class="text-white flex flex-col m-10">
+        <span class="text-[#222] flex flex-col m-10">
           <h1
             class="text-[30px]"
             style="font-family: Inter, sans-serif; font-weight: 800;"
@@ -64,43 +74,51 @@ const plans = [
             >
               {plan.price}
             </h1>
-            <p class="text-[30px] pb-12 text-[#fff] opacity-35 mb-2 ml-2" style="font-family: Inter, sans-serif; font-weight: 600;">/Anual</p>
+            <p class="text-[30px] pb-12 text-[#222] opacity-25 mb-2 ml-2" style="font-family: Inter, sans-serif; font-weight: 600;">/Anual</p>
           </div>
-          <p>
-            <ul class="space-y-4 flex flex-col">
-              {features.map((feature) => (
-                <li class="flex items-start">
-                  <svg
-                    class="mr-2 flex-shrink-0"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 100 100"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="m39.2 50 7.2 7.2 14.4-14.4M35 23.7a12.1 12.1 0 0 0 7-2.9 12.4 12.4 0 0 1 16 0 12.1 12.1 0 0 0 7 2.9A12.4 12.4 0 0 1 76.3 35a12.1 12.1 0 0 0 2.9 7 12.4 12.4 0 0 1 0 16 12.1 12.1 0 0 0-2.9 7A12.4 12.4 0 0 1 65 76.3a12.1 12.1 0 0 0-7 2.9 12.4 12.4 0 0 1-16 0 12.1 12.1 0 0 0-7-2.9A12.4 12.4 0 0 1 23.7 65a12.1 12.1 0 0 0-2.9-7 12.4 12.4 0 0 1 0-16 12.1 12.1 0 0 0 2.9-7A12.4 12.4 0 0 1 35 23.7"
-                      fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="8"
-                      stroke="#fff"
-                    />
-                  </svg>
-                  <span
-                    class="opacity-50 text-[12px]"
-                    style="font-family: Poppins, sans-serif; font-weight: 300;"
-                  >
-                    {feature}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </p>
+          <ul class="space-y-4 flex flex-col">
+            {features.map((feature) => (
+              <li class="flex items-start">
+                <svg 
+                  class="w-5 h-5 min-w-[20px] mr-2 flex-shrink-0" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="24" height="24" fill="white"></rect>
+                  <path 
+                    fill-rule="evenodd" 
+                    clip-rule="evenodd" 
+                    d="M9.55879 3.6972C10.7552 2.02216 13.2447 2.02216 14.4412 3.6972L14.6317 3.96387C14.8422 4.25867 15.1958 4.41652 15.5558 4.37652L16.4048 4.28218C18.3156 4.06988 19.9301 5.68439 19.7178 7.59513L19.6235 8.44415C19.5835 8.8042 19.7413 9.15774 20.0361 9.36831L20.3028 9.55879C21.9778 10.7552 21.9778 13.2447 20.3028 14.4412L20.0361 14.6317C19.7413 14.8422 19.5835 15.1958 19.6235 15.5558L19.7178 16.4048C19.9301 18.3156 18.3156 19.9301 16.4048 19.7178L15.5558 19.6235C15.1958 19.5835 14.8422 19.7413 14.6317 20.0361L14.4412 20.3028C13.2447 21.9778 10.7553 21.9778 9.55879 20.3028L9.36831 20.0361C9.15774 19.7413 8.8042 19.5835 8.44414 19.6235L7.59513 19.7178C5.68439 19.9301 4.06988 18.3156 4.28218 16.4048L4.37652 15.5558C4.41652 15.1958 4.25867 14.8422 3.96387 14.6317L3.6972 14.4412C2.02216 13.2447 2.02216 10.7553 3.6972 9.55879L3.96387 9.36831C4.25867 9.15774 4.41652 8.8042 4.37652 8.44414L4.28218 7.59513C4.06988 5.68439 5.68439 4.06988 7.59513 4.28218L8.44415 4.37652C8.8042 4.41652 9.15774 4.25867 9.36831 3.96387L9.55879 3.6972ZM15.7071 9.29289C16.0976 9.68342 16.0976 10.3166 15.7071 10.7071L11.8882 14.526C11.3977 15.0166 10.6023 15.0166 10.1118 14.526L8.29289 12.7071C7.90237 12.3166 7.90237 11.6834 8.29289 11.2929C8.68342 10.9024 9.31658 10.9024 9.70711 11.2929L11 12.5858L14.2929 9.29289C14.6834 8.90237 15.3166 8.90237 15.7071 9.29289Z" 
+                    fill="#323232"
+                  />
+                </svg>
+                <span
+                  class="opacity-75 text-[13px] text-[#222]"
+                  style="font-family: Poppins, sans-serif; font-weight: 300;"
+                >
+                  {feature.text}
+                </span>
+              </li>
+            ))}
+          </ul>
         </span>
         <div class="m-10">
-          <button class="flex flex-row w-full h-12 items-center border-[#3f3f3f] border-[1px] text-white justify-center text-opacity-50 rounded-lg bg-white bg-opacity-0 hover:bg-opacity-20 hover:text-opacity-85 transition-colors duration-400" style="font-family: Inter, sans-serif; font-weight: 600;">
+          <button class="flex flex-row w-full h-12 items-center border-[#bfbfbf] border-[1px] bg-[#222] bg-opacity-5 text-[#222] justify-center text-opacity-50 rounded-lg hover:border-[#bfbfbf] hover:bg-[white] hover:text-[#0267dc] transition-colors duration-400" style="font-family: Inter, sans-serif; font-weight: 600;">
             Adquirir
-            <svg class="ml-2" data-testid="geist-icon" height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16" style="color: currentcolor;"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.53033 2.21968L9 1.68935L7.93934 2.75001L8.46967 3.28034L12.4393 7.25001H1.75H1V8.75001H1.75H12.4393L8.46967 12.7197L7.93934 13.25L9 14.3107L9.53033 13.7803L14.6036 8.70711C14.9941 8.31659 14.9941 7.68342 14.6036 7.2929L9.53033 2.21968Z" fill="currentColor"></path></svg>
+            <svg 
+              class="ml-2 w-4 h-4" 
+              viewBox="0 0 16 16" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path 
+                fill-rule="evenodd" 
+                clip-rule="evenodd" 
+                d="M9.53033 2.21968L9 1.68935L7.93934 2.75001L8.46967 3.28034L12.4393 7.25001H1.75H1V8.75001H1.75H12.4393L8.46967 12.7197L7.93934 13.25L9 14.3107L9.53033 13.7803L14.6036 8.70711C14.9941 8.31659 14.9941 7.68342 14.6036 7.2929L9.53033 2.21968Z" 
+                fill="currentColor"
+              />
+            </svg>
           </button>
         </div>
       </div>

@@ -7,7 +7,7 @@ export default function App() {
 
   return (
     <div className="flex flex-col gap-2">
-      <Checkbox isSelected={isSelected} onValueChange={setIsSelected} classNames={{ label: 'checkbox-label-white' }}>
+      <Checkbox isSelected={isSelected} onValueChange={setIsSelected} classNames={{ label: 'checkbox-label-[#222]' }}>
         Recordar en este dispositivo
       </Checkbox>
     </div>

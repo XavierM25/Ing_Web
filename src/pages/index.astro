@@ -13,15 +13,15 @@ import PeruTime from '../components/PeruTime';
 ---
 
 <Layout title="GuimarBot - Educando y aprendiendo">
-  <main class="w-full bg-[black]">
+  <main>
     <div
-      class="bg-custom-gradient from-[#36023b] via-[#18041a] to-black flex flex-col space-y-7"
+      class="bg-custom-gradient from-[#ef98f8] via-[#f8d3fc] to-white flex flex-col space-y-5"
     >
       <Header />
       <PeruTime client:load />
       <div id="inicio" class="w-full items-center justify-center">
-        <div class="relative h-[550px] animate-fadeInBlurHorizontal">
-          <div class="absolute inset-0 bg-center opacity-25 blur-md " style="background-image: url('/src/components/apps.png'); background-size: contain; background-repeat: no-repeat;"></div>
+        <div class="relative h-[600px] animate-fadeInBlurHorizontal">
+          <div class="absolute inset-0 bg-center opacity-25 blur-[10px] " style="background-image: url('/src/components/apps.png'); background-size: contain; background-repeat: no-repeat;"></div>
           <div class="relative">
             <Hero />
           </div>

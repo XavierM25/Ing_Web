@@ -1,35 +1,32 @@
 ---
 import DashboardLayout from '../../layouts/DashboardLayout.astro';
+import ProfileImageUpload from './components/ProfileImageUpload';
 
+// Aquí podrías obtener los datos del usuario de tu base de datos
 const userData = {
   nombre: "David Montaño",
   rol: "Estudiante",
-  cursos: 12,
-  certificados: 5
+  imagen: "" // URL de la imagen actual del usuario
 };
 ---
 
 <DashboardLayout title="Perfil">
   <div class="p-8">
     <h1 class="text-3xl font-bold mb-8 text-gray-800">Mi Perfil</h1>
-    <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl">
+    <div class="bg-white border-[#cbcbcb] border-1 rounded-xl p-6 max-w-2xl">
       <div class="flex items-center gap-8">
-        <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center text-4xl">
-          👤
-        </div>
+        <ProfileImageUpload
+          client:load
+          currentImage={userData.imagen}
+          onImageChange={async (newImageUrl) => {
+            // Aquí deberías actualizar la URL de la imagen en tu base de datos
+            console.log('Nueva URL de imagen:', newImageUrl);
+            // Ejemplo: await updateUserProfileImage(userId, newImageUrl);
+          }}
+        />
         <div>
-          <h2 class="text-2xl font-semibold text-gray-800">{userData.nombre}</h2>
-          <p class="text-gray-600 mt-1">{userData.rol}</p>
-          <div class="flex gap-8 mt-4">
-            <div class="text-center">
-              <span class="block text-2xl font-bold text-purple-600">{userData.cursos}</span>
-              <span class="text-sm text-gray-500">Cursos</span>
-            </div>
-            <div class="text-center">
-              <span class="block text-2xl font-bold text-purple-600">{userData.certificados}</span>
-              <span class="text-sm text-gray-500">Certificados</span>
-            </div>
-          </div>
+          <h2 class="text-2xl text-[#222] font-bold font-poppins">{userData.nombre}</h2>
+          <p class="text-[#222] opacity-50 mt-1 font-semibold">{userData.rol}</p>
         </div>
       </div>
     </div>
