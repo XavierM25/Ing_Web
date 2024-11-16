@@ -1,33 +1,48 @@
 ---
 import "../../styles/global.css";
-import { Button } from "@nextui-org/react";
 ---
 
-<div id="Hero" class="w-full items-center flex justify-center pt-4">
-    <div
-      class="text-[#222222] text-center h-[500px] w-[1200px] flex flex-col  justify-center animate-fadeInBlurHorizontal"
-      style="font-family: Onest, sans-serif; font-weight: 800;"
-    >
-      <div class=" ">
-      <h1 class="text-[60px]">Si lo puedes imaginar,</h1>
-      <h2 class="text-[60px] -mt-6">lo puedes programar.</h2>
-      <div class="flex flex-row justify-center pt-5">
-        <p class="max-w-[700px] opacity-50 text-[17px]" style="font-weight: 400;">
-        Transforma tus ideas en realidad. Aprende a crear soluciones digitales
-        desde cero y domina las habilidades que te abrirán puertas en el mundo
-        de la tecnología.
+<div id="Hero" class="w-full items-center flex justify-center">
+  <div
+    class="text-[#222222] text-center 
+    h-[250px] S:h-[280px] M:h-[300px] tablet:h-[350px] 
+    mt-16 S:mt-20 M:mt-24 tablet:mt-32 
+    w-full max-w-[1200px] 
+    px-4 S:px-6 tablet:px-8 laptop:px-10
+    flex flex-col justify-center 
+    animate-fadeInBlurHorizontal"
+    style="font-family: Onest, sans-serif; font-weight: 800;"
+  >
+    <div>
+      <h1 class="text-2xl S:text-3xl M:text-4xl L:text-5xl tablet:text-5xl laptop:text-6xl
+                 leading-tight">
+        Si lo puedes imaginar,
+      </h1>
+      <h2 class="text-2xl S:text-3xl M:text-4xl L:text-5xl tablet:text-5xl laptop:text-6xl
+                 leading-tight pb-4">
+        lo puedes programar.
+      </h2>
+      <div class="flex flex-row justify-center pt-3 S:pt-4 tablet:pt-5">
+        <p class="text-sm S:text-base tablet:text-lg 
+                  max-w-[280px] S:max-w-[400px] M:max-w-[600px] tablet:max-w-[700px] laptop:max-w-[800px] 
+                  opacity-50 
+                  px-4 S:px-6 tablet:px-0"
+           style="font-weight: 400;">
+          Transforma tus ideas en realidad. Aprende a crear soluciones digitales
+          desde cero y domina las habilidades que te abrirán puertas en el mundo
+          de la tecnología.
         </p>
       </div>
-      </div>
-     
     </div>
+  </div>
 </div>
 
 
+
 <style>
-  #Hero {
-    filter: drop-shadow(
-      0 0 15px rgba(0, 0, 0, .2 )
-    )
-  }
+#Hero {
+  filter: drop-shadow(
+    0 0 15px rgba(0, 0, 0, .2 )
+  )
+}
 </style>

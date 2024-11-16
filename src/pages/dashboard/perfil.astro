@@ -1,31 +1,52 @@
 ---
 import DashboardLayout from '../../layouts/DashboardLayout.astro';
-import ProfileImageUpload from './components/ProfileImageUpload';
+import ProfileImageUpload from './resources/Profile/components/ProfileImageUpload';
+import ProfileEdit from './resources/Profile/components/ProfileEdits';
+import Card from './resources/Profile/components/Card/Card.astro'
 
 const userData = {
-  nombre: 'David Montaño',
+  nombre: 'Xavier David Montaño García',
   rol: 'Estudiante',
   imagen: '',
+  correo: 'xaviermg2504@gmail.com',
+  fechaNacimiento: '25/12/2004',
 };
+
+import '../../layouts/styles/global.css';
 ---
 
 <DashboardLayout title="Perfil">
   <div class="p-8">
-    <h1 class="text-3xl font-bold mb-8 text-gray-800">Mi Perfil</h1>
-    <div class="bg-white border-[#cbcbcb] border-1 rounded-xl p-6 max-w-2xl">
-      <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-        <ProfileImageUpload
-          client:load
-          currentImage={userData.imagen}
-        />
-        <div>
-          <h2 class="text-2xl text-[#222] font-bold font-poppins text-center md:text-left">
-            {userData.nombre}
-          </h2>
-          <p class="text-[#222] opacity-50 mt-1 font-semibold text-center md:text-left">
-            {userData.rol}
-          </p>
+    <div class="grid grid-cols-3 gap-4">
+      <div class="bg-white border border-[#bfbfbf] rounded-2xl p-7 col-span-1">
+        <div
+          class="flex flex-col md:flex-row items-start md:items-center gap-10 p-4"
+        >
+          <ProfileImageUpload client:load currentImage={userData.imagen} />
+          <div class="w-full">
+            <h2
+              class="text-[22px] text-[#222] font-bold font-onest text-center md:text-left"
+            >
+              {userData.nombre}
+            </h2>
+            <p
+              class="text-[#222] opacity-50 text-[16px] font-medium font-poppins text-center md:text-left"
+            >
+              {userData.rol}
+            </p>
+          </div>
         </div>
+      </div>
+      <div
+        class="bg-white border border-[#bfbfbf] rounded-2xl p-7 col-span-2 row-span-2"
+      >
+        <h2 class="text-2xl text-[#222] text-center font-bold font-onest mb-4">
+          📈 Estadísticas
+        </h2>
+          <Card />
+      </div>
+      <div class="bg-white border border-[#bfbfbf] rounded-2xl p-7 col-span-1">
+        <ProfileEdit client:load />
       </div>
     </div>
   </div>

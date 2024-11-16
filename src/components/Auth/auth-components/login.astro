@@ -1,10 +1,11 @@
 ---
 import Checbox from '../components/Checkbox';
 import Divider from '../components/Divider';
+
 ---
 
 <div class="flex flex-col pt-2 animate-fade-in-right">
-  <img src="/src/components/cabezabot.svg" class="w-16 mx-auto" alt="" />
+  <img src="/src/components/cabezabot.svg" class="w-16 mx-auto" alt="Logo" />
   <h1
     class="text-[16px] text-center text-[#222] my-3"
     style="font-family: Inter, sans-serif; font-weight: 600;"
@@ -12,8 +13,70 @@ import Divider from '../components/Divider';
     Inicia sesión con tu cuenta
   </h1>
 
-<form class="flex flex-row mb-4 justify-between items-center mt-2">
+  <form class="flex flex-col space-y-2 animate-fade-in-right mt-3 mb-3">
+    <article class="w-full bg-white border-[#bfbfbf] border-[1px] rounded-xl">
+      <div class="flex flex-col m-3 text-[#222] h-[30px]">
+        <h1
+          class="text-[12px] opacity-75 text-[#222] -mt-[5px]"
+          style="font-family: Poppins, sans-serif; font-weight: 700;"
+        >
+          Correo
+        </h1>
+        <input
+          maxlength="128"
+          class="w-full text-[14px] bg-transparent text-[#222]"
+          style="outline: none; font-family: Inter, sans-serif; font-weight: 400;"
+          type="email"
+          name="email"
+          placeholder="Inserte correo"
+          required
+        />
+      </div>
+    </article>
+
+    <article class="w-full bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] rounded-xl">
+      <div class="flex flex-col m-3 text-[#222] h-[30px]">
+        <h1
+          class="text-[12px] opacity-75 text-[#222] -mt-[5px]"
+          style="font-family: Poppins, sans-serif; font-weight: 700;"
+        >
+          Contraseña
+        </h1>
+        <input
+          maxlength="128"
+          class="w-full text-[14px] bg-transparent text-[#222]"
+          style="outline: none; font-family: Inter, sans-serif; font-weight: 400;"
+          type="password"
+          name="password"
+          placeholder="Inserte contraseña"
+          required
+        />
+      </div>
+    </article>
+
+    <div class="flex flex-row items-center justify-between animate-fade-in-right mt-4">
+      <Checbox client:load />
+      <a
+        class="text-[#0169e1] text-[13px] text-end"
+        href="#"
+        style="font-family: Inter, sans-serif; font-weight: 300;"
+      >
+        ¿Olvidaste tu contraseña?
+      </a>
+    </div>
+
     <button
+      type="submit"
+      class="hover:bg-black hover:text-white bg-white bg-opacity-5 border-[#bfbfbf] text-[#222] text-[14px] border-[1px] py-2 w-full rounded-2xl mt-6 mb-2 transition duration-300 animate-fade-in-right"
+      style="font-family: Poppins, sans-serif;"
+    >
+      Iniciar Sesión
+    </button>
+  </form>
+
+  <div class="flex flex-col space-y-2 mb-4">
+    <button
+      type="button"
       class="bg-black bg-opacity-5 rounded-xl items-center justify-center px-[18px] py-4 flex flex-row text-[#222] text-[12px] hover:bg-opacity-10 transition-colors duration-300"
       style="font-family: Poppins, sans-serif; font-weight: 600;"
     >
@@ -23,85 +86,91 @@ import Divider from '../components/Divider';
         height="17"
         viewBox="0 0 256 262"
         preserveAspectRatio="xMidYMid"
-        ><path
-          d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"
-          fill="#4285F4"></path><path
-          d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"
-          fill="#34A853"></path><path
-          d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602z"
-          fill="#FBBC05"></path><path
-          d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"
-          fill="#EB4335"></path></svg
       >
+        <path
+          d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"
+          fill="#4285F4"
+        ></path>
+        <path
+          d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"
+          fill="#34A853"
+        ></path>
+        <path
+          d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602z"
+          fill="#FBBC05"
+        ></path>
+        <path
+          d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"
+          fill="#EB4335"
+        ></path>
+      </svg>
       <p class="ml-3">Iniciar sesión con Google</p>
     </button>
+
     <button
+      type="button"
       class="bg-black bg-opacity-5 rounded-xl items-center justify-center px-[18px] py-4 flex flex-row text-[#222] text-[12px] hover:bg-opacity-10 transition-colors duration-300"
       style="font-family: Poppins, sans-serif; font-weight: 600;"
     >
-    <svg data-testid="geist-icon" height="19" stroke-linejoin="round" viewBox="0 0 16 16" width="19" style="color: currentcolor;"><g clip-path="url(#clip0_872_3147)">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.57879 0 7.99729C0 11.5361 2.29 14.5251 5.47 15.5847C5.87 15.6547 6.02 15.4148 6.02 15.2049C6.02 15.0149 6.01 14.3851 6.01 13.7154C4 14.0852 3.48 13.2255 3.32 12.7757C3.23 12.5458 2.84 11.836 2.5 11.6461C2.22 11.4961 1.82 11.1262 2.49 11.1162C3.12 11.1062 3.57 11.696 3.72 11.936C4.44 13.1455 5.59 12.8057 6.05 12.5957C6.12 12.0759 6.33 11.726 6.56 11.5261C4.78 11.3262 2.92 10.6364 2.92 7.57743C2.92 6.70773 3.23 5.98797 3.74 5.42816C3.66 5.22823 3.38 4.40851 3.82 3.30888C3.82 3.30888 4.49 3.09895 6.02 4.1286C6.66 3.94866 7.34 3.85869 8.02 3.85869C8.7 3.85869 9.38 3.94866 10.02 4.1286C11.55 3.08895 12.22 3.30888 12.22 3.30888C12.66 4.40851 12.38 5.22823 12.3 5.42816C12.81 5.98797 13.12 6.69773 13.12 7.57743C13.12 10.6464 11.25 11.3262 9.47 11.5261C9.76 11.776 10.01 12.2558 10.01 13.0056C10.01 14.0752 10 14.9349 10 15.2049C10 15.4148 10.15 15.6647 10.55 15.5847C12.1381 15.0488 13.5182 14.0284 14.4958 12.6673C15.4735 11.3062 15.9996 9.67293 16 7.99729C16 3.57879 12.42 0 8 0Z" fill="currentColor"></path>
-      </g>
-      <defs>
-      <clipPath id="clip0_872_3147">
-      <rect width="16" height="16" fill="white"></rect>
-      </clipPath>
-      </defs></svg>
+      <svg
+        data-testid="geist-icon"
+        height="19"
+        stroke-linejoin="round"
+        viewBox="0 0 16 16"
+        width="19"
+        style="color: currentcolor;"
+      >
+        <g clip-path="url(#clip0_872_3147)">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M8 0C3.58 0 0 3.57879 0 7.99729C0 11.5361 2.29 14.5251 5.47 15.5847C5.87 15.6547 6.02 15.4148 6.02 15.2049C6.02 15.0149 6.01 14.3851 6.01 13.7154C4 14.0852 3.48 13.2255 3.32 12.7757C3.23 12.5458 2.84 11.836 2.5 11.6461C2.22 11.4961 1.82 11.1262 2.49 11.1162C3.12 11.1062 3.57 11.696 3.72 11.936C4.44 13.1455 5.59 12.8057 6.05 12.5957C6.12 12.0759 6.33 11.726 6.56 11.5261C4.78 11.3262 2.92 10.6364 2.92 7.57743C2.92 6.70773 3.23 5.98797 3.74 5.42816C3.66 5.22823 3.38 4.40851 3.82 3.30888C3.82 3.30888 4.49 3.09895 6.02 4.1286C6.66 3.94866 7.34 3.85869 8.02 3.85869C8.7 3.85869 9.38 3.94866 10.02 4.1286C11.55 3.08895 12.22 3.30888 12.22 3.30888C12.66 4.40851 12.38 5.22823 12.3 5.42816C12.81 5.98797 13.12 6.69773 13.12 7.57743C13.12 10.6464 11.25 11.3262 9.47 11.5261C9.76 11.776 10.01 12.2558 10.01 13.0056C10.01 14.0752 10 14.9349 10 15.2049C10 15.4148 10.15 15.6647 10.55 15.5847C12.1381 15.0488 13.5182 14.0284 14.4958 12.6673C15.4735 11.3062 15.9996 9.67293 16 7.99729C16 3.57879 12.42 0 8 0Z"
+            fill="currentColor"
+          ></path>
+        </g>
+        <defs>
+          <clipPath id="clip0_872_3147">
+            <rect width="16" height="16" fill="white"></rect>
+          </clipPath>
+        </defs>
+      </svg>
       <p class="ml-3">Iniciar sesión con GitHub</p>
     </button>
-</form>
-<Divider />
+  </div>
+
 </div>
-<form class="flex flex-col space-y-2 animate-fade-in-right mt-3 mb-3">
-  <article
-    class="w-full bg-white border-[#bfbfbf] border-[1px] rounded-xl"
-  >
-    <div class="flex flex-col m-3 text-[#222] h-[30px]">
-      <h1
-        class="text-[12px] opacity-75 text-[#222] -mt-[5px]" 
-        style="font-family: Poppins, sans-serif; font-weight: 700;"
-      >
-        Correo
-      </h1>
-      <input
-        maxlength="128"
-        class="w-full text-[14px] bg-transparent text-[#222]"
-        style="outline: none; font-family: Inter, sans-serif; font-weight: 400;"
-        type="text"
-        placeholder="Inserte correo"
-      />
-    </div>
-  </article>
-  <article
-    class="w-full bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] rounded-xl "
-  >
-    <div class="flex flex-col m-3 text-[#222] h-[30px]">
-      <h1
-        class="text-[12px] opacity-75 text-[#222] -mt-[5px]"
-        style="font-family: Poppins, sans-serif; font-weight: 700;"
-      >
-        Contraseña
-      </h1>
-      <input
-        maxlength="128"
-        class="w-full text-[14px] bg-transparent text-[#222]"
-        style="outline: none; font-family: Inter, sans-serif; font-weight: 400;"
-        type="password"
-        placeholder="Inserte contraseña"
-      />
-    </div>
-  </article>
-</form>
-<form class="flex flex-row items-center justify-between animate-fade-in-right mt-4">
-  <Checbox client:load />
-  <a
-    class="text-[#0169e1] text-[13px] text-end"
-    href=""
-    style="font-family: Inter, sans-serif; font-weight: 300;"
-    >¿Olvidaste tu contraseña?</a
-  >
-</form>
-<button
-  class="hover:bg-black hover:text-white bg-white bg-opacity-5 border-[#bfbfbf] text-[#222] text-[14px] border-[1px] py-2 w-full rounded-2xl mt-6 mb-2 transition duration-300  animate-fade-in-right"
-  style="font-family: Poppins, sans-serif;">Iniciar Sesión</button
->
+
+<script>
+
+
+  const form = document.querySelector('form');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const email = form.email.value;
+    const password = form.password.value;
+
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem('token', data.token);
+        window.location.href = '/dashboard';
+      } else {
+        window.dispatchEvent(new CustomEvent('show-toast', { detail: { message: data.message || 'Error al iniciar sesión', type: 'error' } }));
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      window.dispatchEvent(new CustomEvent('show-toast', { detail: { message: 'Error de conexión con el servidor', type: 'error' } }));
+    }
+  });
+</script>

@@ -1,0 +1,34 @@
+---
+import "../../../../../../layouts/styles/global.css";
+import { PLANS } from './constants';
+---
+
+<Fragment>
+  <section class="w-full flex justify-center">
+    <div class="max-w-7xl w-full px-4 pt-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 place-items-center">
+        {PLANS.map((plan) => (
+          <div class="w-full max-w-[450px] bg-white/5 border border-[#bfbfbf] backdrop-blur rounded-3xl transition-all duration-300 flex flex-col">
+            <div class="flex-1 p-6">
+              <div class="mb-4">
+                <h2
+                  class="text-2xl md:text-[15px] text-center text-[#222] font-medium font-poppins"
+                >
+                  {plan.tittle}
+                </h2>
+              </div>
+
+              <div class="flex items-center justify-center mb-2 font-onest">
+                <span
+                  class="text-4xl md:text-[30px] font-bold"
+                >
+                  {plan.value}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Fragment>

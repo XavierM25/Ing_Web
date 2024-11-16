@@ -68,3 +68,8 @@
   -webkit-box-orient: vertical;
   position: relative;
 }
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}

@@ -11,5 +11,9 @@ export default defineConfig({
   output:'server',
   adapter: node({mode:'standalone'}),
   integrations: [tailwind(), react(), auth()],
-
-});
+  vite: {
+    ssr: {
+      noExternal: ['react-easy-crop']
+    }
+  }
+}); 

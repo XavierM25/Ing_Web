@@ -1,43 +1,37 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Login from "../components/Auth/auth-components/login.astro";
-import Register from "../components/Auth/auth-components/register.astro";
-import {Button} from '@nextui-org/react';
-import BackButton from "../components/Auth/BackButton";
+import Layout from '../layouts/Layout.astro';
+import Login from '../components/Auth/auth-components/login.astro';
+import Register from '../components/Auth/auth-components/register.astro';
+import { Button } from '@nextui-org/react';
+import BackButton from '../components/Auth/BackButton';
 ---
 
 <Layout title="Guimarbot: Autenticación">
-    <BackButton client:load />
-    <main class="mx-auto w-1/4 h-full animate-fade-in-dow pt-12">
-        <div class="p-4 bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] backdrop-blur rounded-3xl">
-            <div class="w-full flex flex-row mb-4" style="font-family: Inter, sans-serif;">
-                <Button id="btnLogin" radius ="none" className="bg-white bg-opacity-5 border-[#bfbfbf] text-[#222] border-[1px] border-l-[1px] p-2 rounded-s-2xl w-full" client:visible>Iniciar sesión</Button>
-                <Button id="btnRegister" radius ="none" className="bg-white bg-opacity-5 border-[#bfbfbf] text-[#222] border-[1px] p-2 rounded-e-2xl w-full" client:visible>Registrarse</Button>
-            </div>
-            <div id="loginContainer" class="w-full">
-                <Login />
-            </div>
-            <div id="registerContainer" class="hidden w-full">
-                <Register />
-            </div>
-        </div>
-    </main> 
+  <BackButton client:load />
+  <main class="mx-auto w-1/4 h-full animate-fade-in-dow pt-12">
+    <div id="loginContainer" class="w-full">
+      <Login />
+    </div>
+    <div id="registerContainer" class="hidden w-full">
+      <Register />
+    </div>
+  </main>
 </Layout>
 
 <script>
-    const loginContainer = document.getElementById('loginContainer');
-    const registerContainer = document.getElementById('registerContainer');
+  const loginContainer = document.getElementById('loginContainer');
+  const registerContainer = document.getElementById('registerContainer');
 
-    const btnLogin = document.getElementById('btnLogin');
-    const btnRegister = document.getElementById('btnRegister');
+  const btnLogin = document.getElementById('btnLogin');
+  const btnRegister = document.getElementById('btnRegister');
 
-    btnLogin?.addEventListener('click', () => {
-        loginContainer?.classList.remove('hidden');
-        registerContainer?.classList.add('hidden');
-    });
+  btnLogin?.addEventListener('click', () => {
+    loginContainer?.classList.remove('hidden');
+    registerContainer?.classList.add('hidden');
+  });
 
-    btnRegister?.addEventListener('click', () => {
-        registerContainer?.classList.remove('hidden');
-        loginContainer?.classList.add('hidden');
-    });
+  btnRegister?.addEventListener('click', () => {
+    registerContainer?.classList.remove('hidden');
+    loginContainer?.classList.add('hidden');
+  });
 </script>

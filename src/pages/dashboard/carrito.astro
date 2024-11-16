@@ -1,58 +1,150 @@
 ---
 import DashboardLayout from '../../layouts/DashboardLayout.astro';
+import CreditCard from './resources/Carrito/components/payment.astro';
+import ModalController from './resources/Carrito/components/ModalController';
+import '../../layouts/styles/global.css';
 
-const userData = {
-  nombre: "David Montaño",
-  rol: "Estudiante",
-  cursos: 12,
-  certificados: 5
-};
+const pedido = [
+  {
+    pedido: 'Suscripción experto',
+    students: '4 estudiantes',
+    tiempo: 'Anual',
+    image:
+      '/src/layouts/Home_Section/Courses/components/images/desarrolloweb.png',
+    description:
+      'Accede a todos los cursos, rutas, talleres y certificados de GuimarBot con la suscripción experto',
+    price: 'S/. 500',
+  },
+];
+const types = ['Paypal', 'Tarjeta de crédito'];
 ---
 
-<DashboardLayout title="Carrito">
-  <div class="p-8">
-    <h1 class="text-3xl font-bold mb-8 text-gray-800">Mi Carrito</h1>
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      <div class="lg:col-span-2 space-y-4">
-        <div class="bg-white rounded-xl shadow-lg p-6">
-          <div class="flex justify-between items-center">
-            <div>
-              <h3 class="text-xl font-semibold text-gray-800">Curso de Python</h3>
-              <p class="text-gray-600 mt-1">Instructor: Ana García</p>
+<DashboardLayout title="Carrito de compras">
+  <section class="w-full bg-white m-8">
+    <div class="text-[#222] text-start h-full justify-center items-center animate-fadeInBlurHorizontal">
+      <h1
+        class="text-2xl mb-4 font-onest text-[#222] font-bold"
+      >
+        Resumen de tu pedido
+      </h1>
+      <form class="flex flex-row space-x-5">
+        {
+          pedido.map((pedido) => (
+            <div class="bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] backdrop-blur w-[935px] h-[325px] rounded-2xl">
+              <div class="m-4 pl-2 items-center space-x-5 flex flex-row">
+                <h1
+                  class="text-[18px] font-poppins text-[#222]"
+                  style="font-weight: 600;"
+                >
+                  {pedido.pedido}
+                </h1>
+                <div
+                  class="space-x-2 flex flex-row font-poppins text-[#222]"
+                  style="font-weight: 300;"
+                >
+                  <p class="bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] items-center inline-flex px-4 py-[4px] rounded-full flex-row text-[13px]">
+                    {pedido.students}
+                  </p>
+                  <p class="bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] items-center inline-flex px-4 py-[4px] rounded-full flex-row text-[13px]">
+                    {pedido.tiempo}
+                  </p>
+                </div>
+              </div>
+              <div class="grid grid-cols-3 grid-rows-1 gap-4 m-6">
+                <div class="col-span-3">
+                  <div class="grid grid-cols-6 grid-rows-1 gap-4">
+                    {<img
+                      src="/src/layouts/Home_Section/Courses/components/images/desarrolloweb.png"
+                      class=" col-span-3 rounded-lg"
+                      alt=""
+                    />}
+                    <p
+                      class="col-span-4 col-start-4 text-[14px] opacity-75 min-w-96 font-poppins"
+                      style="font-weight: 300;"
+                    >
+                      {pedido.description}
+                    </p>
+                    <h1
+                      class="col-span-8 col-start-8 mr-4 justify-end flex font-poppins text-[#222]"
+                      style="font-weight: 500;"
+                    >
+                      {pedido.price}
+                    </h1>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-row px-6 justify-between w-full  rounded-b-xl font-inter">
+                <a
+                  href=""
+                  class="text-[16px] text-[#0169e1]"
+                  style="font-weight: 400;"
+                >
+                  ¿Necesitas ayuda en tu pedido?
+                </a>
+                <p class="mr-4 text-[16px]" style="font-weight: 600;">
+                  Total {pedido.price}
+                </p>
+              </div>
             </div>
-            <div class="text-xl font-bold text-accent">$49.99</div>
-          </div>
-        </div>
-        <div class="bg-white rounded-xl shadow-lg p-6">
-          <div class="flex justify-between items-center">
-            <div>
-              <h3 class="text-xl font-semibold text-gray-800">Desarrollo Mobile</h3>
-              <p class="text-gray-600 mt-1">Instructor: Carlos Ruiz</p>
+          ))
+        }
+        {/* Segunda tarjeta - opciones de compra */}
+        {
+          pedido.map((pedido) => (
+            <div class="bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] backdrop-blur w-[450px] h-[325px] rounded-2xl">
+              <h1
+                class="text-[24px] text-[#f7c124] mt-10 text-center"
+                style="font-weight: 600;"
+              >
+                {pedido.pedido}
+              </h1>
+              <h1
+                class="text-center text-[30px] mb-2 text-[#222] font-inter"
+                style="font-weight: 900;"
+              >
+                {pedido.price}
+              </h1>
+
+              <a
+                href=""
+                class="text-[16px] text-[#0169e1] justify-center flex mb-8 font-inter"
+                style="font-weight: 400;"
+              >
+                ¿Tienes un cupón?
+              </a>
+
+              <div class="space-y-3">
+                <ModalController
+                  price={pedido.price}
+                  title={pedido.pedido}
+                  client:load
+                />
+
+                <button class="flex flex-row px-[78px] py-2 bg-black bg-opacity-5 border-[#bfbfbf] border-[1px] backdrop-blur rounded-lg mx-auto">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 7v13m0-13H8.464c-.52 0-1.02-.21-1.389-.586A2.02 2.02 0 0 1 6.5 5c0-.53.207-1.04.575-1.414A1.95 1.95 0 0 1 8.465 3C11.214 3 12 7 12 7m0 0h3.536c.52 0 1.02-.21 1.389-.586.368-.375.575-.884.575-1.414s-.207-1.04-.575-1.414A1.95 1.95 0 0 0 15.535 3C12.786 3 12 7 12 7m-7 5h14v5.8c0 1.12 0 1.68-.218 2.108a2 2 0 0 1-.874.874C17.48 21 16.92 21 15.8 21H8.2c-1.12 0-1.68 0-2.108-.218a2 2 0 0 1-.874-.874C5 19.48 5 18.92 5 17.8zm-.4 0h14.8c.56 0 .84 0 1.054-.109a1 1 0 0 0 .437-.437C21 11.24 21 10.96 21 10.4V8.6c0-.56 0-.84-.109-1.054a1 1 0 0 0-.437-.437C20.24 7 19.96 7 19.4 7H4.6c-.56 0-.84 0-1.054.109a1 1 0 0 0-.437.437C3 7.76 3 8.04 3 8.6v1.8c0 .56 0 .84.109 1.054a1 1 0 0 0 .437.437C3.76 12 4.04 12 4.6 12"
+                      stroke="#fff"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <p class="ml-2 font-inter" style="font-weight: 500;">
+                    Comprar como regalo
+                  </p>
+                </button>
+              </div>
             </div>
-            <div class="text-xl font-bold text-accent">$59.99</div>
-          </div>
-        </div>
-      </div>
-      <div class="bg-white rounded-xl shadow-lg p-6 h-fit">
-        <h3 class="text-xl font-semibold text-gray-800 mb-6">Resumen</h3>
-        <div class="space-y-4">
-          <div class="flex justify-between text-gray-600">
-            <span>Subtotal</span>
-            <span>$109.98</span>
-          </div>
-          <div class="flex justify-between text-gray-600">
-            <span>Descuento</span>
-            <span>-$10.00</span>
-          </div>
-          <div class="flex justify-between text-xl font-bold text-gray-800 pt-4 border-t">
-            <span>Total</span>
-            <span>$99.98</span>
-          </div>
-          <button class="w-full py-3 bg-accent text-white rounded-lg mt-6 hover:opacity-90 transition-opacity">
-            Proceder al pago
-          </button>
-        </div>
-      </div>
+          ))
+        }
+      </form>
     </div>
-  </div>
+  </section>
 </DashboardLayout>

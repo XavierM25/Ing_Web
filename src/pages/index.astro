@@ -7,9 +7,6 @@ import Carrousel from '../layouts/Home_Section/Carrousel/page.tsx';
 import Choose from '../layouts/Home_Section/Choose/page.astro';
 import FAQ from '../layouts/Home_Section/FAQ/page.astro'
 import Footer from '../layouts/Footer/footer';
-import Courses from '../layouts/Dashboard/Courses/page.astro';
-
-import PeruTime from '../components/PeruTime';
 ---
 
 <Layout title="GuimarBot - Educando y aprendiendo">
@@ -18,9 +15,8 @@ import PeruTime from '../components/PeruTime';
       class="bg-custom-gradient from-[#ef98f8] via-[#f8d3fc] to-white flex flex-col space-y-5"
     >
       <Header />
-      <PeruTime client:load />
       <div id="inicio" class="w-full items-center justify-center">
-        <div class="relative h-[600px] animate-fadeInBlurHorizontal">
+        <div class="relative h-[485px] animate-fadeInBlurHorizontal">
           <div class="absolute inset-0 bg-center opacity-25 blur-[10px] " style="background-image: url('/src/components/apps.png'); background-size: contain; background-repeat: no-repeat;"></div>
           <div class="relative">
             <Hero />
@@ -31,7 +27,9 @@ import PeruTime from '../components/PeruTime';
       <div id="FAQ" class="w-full items-center justify-center">
         <FAQ />
       </div>
-      <Carrousel />
+      <div class="pb-20">
+        <Carrousel />
+      </div>
       <div id="planes" class="w-full items-center justify-center">
         <Planes />
       </div>
@@ -39,4 +37,3 @@ import PeruTime from '../components/PeruTime';
     </div>
   </main>
 </Layout>
-

@@ -1,18 +1,29 @@
 ---
-import Accordion from "../FAQ/components/Accordion.tsx"
+import Accordion from '../FAQ/components/Accordion.tsx';
 ---
 
-<article id="FAQ" class="w-full items-center flex justify-center flex-col pb-32 animate-fadeInBlurHorizontal">
-    <h1 class="text-[65px] text-[#222] pt-24" style="font-family: Inter, sans-serif; font-weight: 900;">Preguntas Frecuentes (FAQ)</h1>
-  <p class="text-[25px] text-[#222] opacity-50 pb-16" style="font-family: Inter, sans-serif; font-weight: 400;">¡Si tienes alguna duda personalizada no dudes en consultarlo mediante nuestras redes!</p>
-  
-    <Accordion client:load/>
+<article
+  id="FAQ"
+  class="w-full items-center flex justify-center flex-col pb-16 S:pb-20 tablet:pb-24 laptop:pb-32 animate-fadeInBlurHorizontal"
+>
+  <h1
+    class="text-[32px] S:text-[40px] tablet:text-[50px] laptop:text-[65px] text-[#222] pt-16 S:pt-20 tablet:pt-24 laptop:pt-32 pb-2 S:pb-3"
+    style="font-family: Inter, sans-serif; font-weight: 900;"
+  >
+    Preguntas Frecuentes (FAQ)
+  </h1>
+  <p
+    class="text-sm S:text-base tablet:text-lg text-center text-[#222] opacity-50 px-4 S:px-6 tablet:px-8 pb-6 S:pb-8 tablet:pb-10"
+    style="font-family: Inter, sans-serif; font-weight: 400;"
+  >
+    ¡Si tienes alguna duda personalizada no dudes en consultarlo mediante
+    nuestras redes!
+  </p>
+  <Accordion client:load />
 </article>
 
 <style>
   #FAQ {
-    filter: drop-shadow(
-      0 0 15px rgba(0, 0, 0, .2 )
-    )
+    filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.2));
   }
 </style>
