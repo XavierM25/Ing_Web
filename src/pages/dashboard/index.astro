@@ -1,7 +1,7 @@
 ---
 import DashboardLayout from '../../layouts/DashboardLayout.astro';
 
-const user = "David";
+const user = 'David';
 
 const dashboardData = {
   cursosActivos: 3,
@@ -25,39 +25,39 @@ const dashboardData = {
   ],
 };
 
-import PeruTime from '../../components/PeruTime';
 import '../../layouts/styles/global.css';
 ---
 
 <DashboardLayout title="Página principal">
-  <div class="p-8">
-    <div class="flex items-center justify-between mb-8">
-      <PeruTime client:load />
+  <div class="p-4 S:p-6 tablet:p-8">
+    <div class="flex items-center justify-between mb-6 tablet:mb-8">
       <p class="text-[#222] font-inter" style="font-weight: 500;">
         Bienvenido de nuevo, {user} 👋
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+    <div
+      class="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-4 gap-4 S:gap-6 tablet:gap-8 mb-6 tablet:mb-8"
+    >
       <div
-        class="bg-white bg-opacity-[0.035] border-[1px] border-[#bfbfbf] p-6 rounded-xl"
+        class="bg-white bg-opacity-[0.035] border-[1px] border-[#bfbfbf] p-4 S:p-6 rounded-xl"
       >
         <div class="flex items-center justify-between">
           <div>
             <p
-              class="text-[18px] text-[#222] mb-2 font-onest"
+              class="text-base S:text-[18px] text-[#222] mb-2 font-onest"
               style="font-weight: 700;"
             >
               Cursos Activos
             </p>
             <h3
-              class="text-2xl text-[#222] font-poppins"
+              class="text-xl S:text-2xl text-[#222] font-poppins"
               style="font-weight: 500;"
             >
               {dashboardData.cursosActivos}
             </h3>
           </div>
-          <div class="text-3xl">📚</div>
+          <div class="text-2xl S:text-3xl">📚</div>
         </div>
         <div class="mt-4">
           <div class="h-1 bg-gray-200 rounded-full">
@@ -68,7 +68,7 @@ import '../../layouts/styles/global.css';
             </div>
           </div>
           <p
-            class="text-sm text-[#222] mt-3 opacity-65 font-poppins"
+            class="text-xs S:text-sm text-[#222] mt-3 opacity-65 font-poppins"
             style="font-weight: 400;"
           >
             Progreso general: {dashboardData.progresoTotal}%
@@ -77,128 +77,142 @@ import '../../layouts/styles/global.css';
       </div>
 
       <div
-        class="bg-white bg-opacity-[0.035] border-[1px] border-[#bfbfbf] p-6 rounded-xl"
+        class="bg-white bg-opacity-[0.035] border-[1px] border-[#bfbfbf] p-4 S:p-6 rounded-xl"
       >
         <div class="flex items-center justify-between">
           <div>
             <p
-              class="text-[18px] text-[#222] mb-2 font-onest"
+              class="text-base S:text-[18px] text-[#222] mb-2 font-onest"
               style="font-weight: 700;"
             >
               Certificados
             </p>
             <h3
-              class="text-2xl text-[#222] font-poppins"
+              class="text-xl S:text-2xl text-[#222] font-poppins"
               style="font-weight: 500;"
             >
               {dashboardData.certificados}
             </h3>
           </div>
-          <div class="text-3xl">🏆</div>
+          <div class="text-2xl S:text-3xl">🏆</div>
         </div>
         <p
-          class="text-sm text-[#16c816] mt-3 opacity-65 font-poppins font-medium"
+          class="text-xs S:text-sm text-[#16c816] mt-3 opacity-65 font-poppins font-medium"
         >
           +2 este mes
         </p>
       </div>
 
       <div
-        class="bg-white bg-opacity-[0.035] border-[1px] border-[#bfbfbf] p-6 rounded-xl"
+        class="bg-white bg-opacity-[0.035] border-[1px] border-[#bfbfbf] p-4 S:p-6 rounded-xl"
       >
         <div class="flex items-center justify-between">
           <div>
             <p
-              class="text-[18px] text-[#222] mb-2 font-onest"
+              class="text-base S:text-[18px] text-[#222] mb-2 font-onest"
               style="font-weight: 700;"
             >
               En Carrito
             </p>
             <h3
-              class="text-2xl text-[#222] font-bold font-poppins"
+              class="text-xl S:text-2xl text-[#222] font-bold font-poppins"
               style="font-weight: 500;"
             >
               {dashboardData.cursosCarrito}
             </h3>
           </div>
-          <div class="text-3xl">🛒</div>
+          <div class="text-2xl S:text-3xl">🛒</div>
         </div>
         <button
-          class="mt-3 text-sm text-[#7120df] hover:text-purple-400 font-medium transition-colors duration-300"
-          >Ver carrito →</button
+          class="mt-3 text-xs S:text-sm text-[#7120df] hover:text-purple-400 font-medium transition-colors duration-300"
         >
+          Ver carrito →
+        </button>
       </div>
 
       <div
-        class="bg-white bg-opacity-[0.035] border-[1px] border-[#bfbfbf] p-6 rounded-xl"
+        class="bg-white bg-opacity-[0.035] border-[1px] border-[#bfbfbf] p-4 S:p-6 rounded-xl"
       >
         <div class="flex items-center justify-between">
           <div>
             <p
-              class="text-[18px] text-[#222] mb-2 font-onest"
+              class="text-base S:text-[18px] text-[#222] mb-2 font-onest"
               style="font-weight: 700;"
             >
               Favoritos
             </p>
             <h3
-              class="text-2xl text-[#222] font-bold font-poppins"
+              class="text-xl S:text-2xl text-[#222] font-bold font-poppins"
               style="font-weight: 500;"
             >
               {dashboardData.cursosFavoritos}
             </h3>
           </div>
-          <div class="text-3xl">⭐</div>
+          <div class="text-2xl S:text-3xl">⭐</div>
         </div>
         <button
-          class="mt-3 text-sm text-[#7120df] hover:text-purple-400 font-medium transition-colors duration-300"
-          >Ver favoritos →</button
+          class="mt-3 text-xs S:text-sm text-[#7120df] hover:text-purple-400 font-medium transition-colors duration-300"
         >
+          Ver favoritos →
+        </button>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
+    <div class="grid grid-cols-1 laptop:grid-cols-2 gap-4 S:gap-6 tablet:gap-8">
       <div
-        class="bg-white bg-opacity-[0.035] border-[1px] border-[#bfbfbf] p-6 rounded-xl"
+        class="bg-white bg-opacity-[0.035] border-[1px] border-[#bfbfbf] p-4 S:p-6 rounded-xl"
       >
-        <h3 class="text-lg font-semibold text-[#222] mb-4 font-onest">
+        <h3
+          class="text-base S:text-lg font-semibold text-[#222] mb-4 font-onest"
+        >
           Próxima Clase
         </h3>
-        <div class="flex flex-col gap-6">
-          {dashboardData.proximaClase.map((curso) => (
-            <div class="flex items-center gap-4">
-              <div class="bg-purple-100 p-3 rounded-lg">
-                <span class="text-2xl">📅</span>
+        <div class="flex flex-col gap-4 S:gap-6">
+          {
+            dashboardData.proximaClase.map((curso) => (
+              <div class="flex items-center gap-3 S:gap-4">
+                <div class="bg-purple-100 p-2 S:p-3 rounded-lg">
+                  <span class="text-xl S:text-2xl">📅</span>
+                </div>
+                <div>
+                  <p class="text-sm S:text-base font-medium text-[#222] font-inter">
+                    {curso.titulo} - {curso.hora}
+                  </p>
+                  <p class="text-xs S:text-sm text-[#222] opacity-75 font-poppins">
+                    {curso.dia}
+                  </p>
+                </div>
+                <button class="ml-auto bg-purple-500 text-white px-3 py-1.5 S:px-4 S:py-2 rounded-lg hover:bg-purple-600 text-sm S:text-base font-inter transition-colors duration-300">
+                  Unirse
+                </button>
               </div>
-              <div>
-                <p class="font-medium text-[#222] font-inter">
-                  {curso.titulo} - {curso.hora}
-                </p>
-                <p class="text-sm text-[#222] opacity-75 font-poppins">{curso.dia}</p>
-              </div>
-              <button
-                class="ml-auto bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 font-inter transition-colors duration-300"
-              >
-                Unirse
-              </button>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
 
       <div
-        class="bg-white bg-opacity-[0.035] border-[1px] border-[#bfbfbf] p-6 rounded-xl"
+        class="bg-white bg-opacity-[0.035] border-[1px] border-[#bfbfbf] p-4 S:p-6 rounded-xl"
       >
-        <h3 class="text-lg font-semibold text-[#222] mb-4 font-onest">Últimos Logros</h3>
-        <div class="space-y-6">
+        <h3
+          class="text-base S:text-lg font-semibold text-[#222] mb-4 font-onest"
+        >
+          Últimos Logros
+        </h3>
+        <div class="space-y-4 S:space-y-6">
           {
             dashboardData.ultimosLogros.map((logro) => (
-              <div class="flex items-center gap-4">
-                <div class="bg-yellow-100 p-3 rounded-lg">
-                  <span class="text-2xl">🏆</span>
+              <div class="flex items-center gap-3 S:gap-4">
+                <div class="bg-yellow-100 p-2 S:p-3 rounded-lg">
+                  <span class="text-xl S:text-2xl">🏆</span>
                 </div>
                 <div>
-                  <p class="font-medium text-[#222] font-inter">{logro.titulo}</p>
-                  <p class="text-sm text-[#222] opacity-75 font-poppins">{logro.descripcion}</p>
+                  <p class="text-sm S:text-base font-medium text-[#222] font-inter">
+                    {logro.titulo}
+                  </p>
+                  <p class="text-xs S:text-sm text-[#222] opacity-75 font-poppins">
+                    {logro.descripcion}
+                  </p>
                 </div>
               </div>
             ))

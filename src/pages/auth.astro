@@ -1,14 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
 import Login from '../components/Auth/auth-components/login.astro';
 import Register from '../components/Auth/auth-components/register.astro';
-import { Button } from '@nextui-org/react';
 import BackButton from '../components/Auth/BackButton';
+import AuthLayout from '../layouts/AuthLayout.astro';
 ---
 
-<Layout title="Guimarbot: Autenticación">
+<AuthLayout title="Guimarbot: Autenticación">
   <BackButton client:load />
-  <main class="mx-auto w-1/4 h-full animate-fade-in-dow pt-12">
+  <main class="mx-auto w-1/4 h-full animate-fade-in-dow">
     <div id="loginContainer" class="w-full">
       <Login />
     </div>
@@ -16,7 +15,7 @@ import BackButton from '../components/Auth/BackButton';
       <Register />
     </div>
   </main>
-</Layout>
+</AuthLayout>
 
 <script>
   const loginContainer = document.getElementById('loginContainer');
@@ -25,12 +24,14 @@ import BackButton from '../components/Auth/BackButton';
   const btnLogin = document.getElementById('btnLogin');
   const btnRegister = document.getElementById('btnRegister');
 
-  btnLogin?.addEventListener('click', () => {
+  btnLogin?.addEventListener('click', (e) => {
+    e.preventDefault();
     loginContainer?.classList.remove('hidden');
     registerContainer?.classList.add('hidden');
   });
 
-  btnRegister?.addEventListener('click', () => {
+  btnRegister?.addEventListener('click', (e) => {
+    e.preventDefault();
     registerContainer?.classList.remove('hidden');
     loginContainer?.classList.add('hidden');
   });

@@ -63,60 +63,82 @@ const courses = [
 ---
 
 <DashboardLayout title="Cursos">
-  <div class="w-full items-center flex justify-center flex-col p-8">
-    <section class="border-[#bfbfbf] border-[1px] rounded-3xl w-full h-full overflow-hidden">
-      <header class="border-[#bfbfbf] border-b-[1px] bg-black bg-opacity-5 w-full h-[60px] flex flex-row items-center justify-around space-x">
-        <div class="bg-white border-[#bfbfbf] border-[1px] rounded-xl w-auto h-[40px] flex flex-row justify-between">
+  <div
+    class="w-full items-center flex justify-center flex-col p-4 S:p-6 tablet:p-8"
+  >
+    <section
+      class="border-[#bfbfbf] border-[1px] rounded-xl S:rounded-2xl tablet:rounded-3xl w-full h-full overflow-hidden"
+    >
+      <header
+        class="border-[#bfbfbf] border-b-[1px] bg-black bg-opacity-5 w-full min-h-[60px]
+                     flex flex-col tablet:flex-row items-center justify-around space-y-4 tablet:space-y-0
+                     py-4 tablet:py-0"
+      >
+        {/* Barra de búsqueda */}
+        <div
+          class="bg-white border-[#bfbfbf] border-[1px] rounded-xl w-full tablet:w-auto h-[40px]
+                    flex flex-row justify-between mx-4 tablet:mx-0"
+        >
           <input
             type="text"
             id="searchInput"
-            class="bg-transparent overflow-hidden w-[775px] h-full text-[#222] p-2 ml-4"
+            class="bg-transparent overflow-hidden w-full tablet:w-[400px] laptop:w-[600px] laptopL:w-[775px]
+                   h-full text-[#222] p-2 ml-4"
             style="font-family: Inter, sans-serif; font-weight: 400; outline: none;"
             placeholder="Buscar cursos..."
           />
-          <button class="w-[40px] h-[40px] items-center flex flex-col justify-center mr-3">
-            <svg
-              width="25"
-              height="25"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
+          <button
+            class="w-[40px] h-[40px] items-center flex flex-col justify-center mr-3"
+          >
+            <svg width="25" height="25" viewBox="0 0 24 24" fill="none">
               <path
                 d="M15.796 15.811 21 21m-3-10.5a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0"
                 stroke="black"
                 stroke-width="2"
                 stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+                stroke-linejoin="round"></path>
             </svg>
           </button>
         </div>
-        
-        <CustomDropdown 
-          client:load 
-          options={options}
-          onSelectionChange={(selected) => {
-            window.dispatchEvent(new CustomEvent('filtersChanged', {
-              detail: { filters: Array.from(selected) }
-            }));
-          }}
-        />
-        
-        <button
-          id="applyFilters"
-          class="bg-black bg-opacity-5 px-8 py-1 rounded-3xl border-[#bfbfbf] border-[1px] text-[#222] text-opacity-75 hover:bg-opacity-20 hover:text-opacity-85 transition-colors duration-400"
-          style="font-family: Inter, sans-serif; font-weight: 600;"
+
+        {/* Dropdown y botón de filtros */}
+        <div
+          class="flex flex-row items-center gap-4 w-full tablet:w-auto px-4 tablet:px-0"
         >
-          Aplicar
-        </button>
+          <div class="flex-grow tablet:flex-grow-0">
+            <CustomDropdown
+              client:load
+              options={options}
+              onSelectionChange={(selected) => {
+                window.dispatchEvent(
+                  new CustomEvent('filtersChanged', {
+                    detail: { filters: Array.from(selected) },
+                  }),
+                );
+              }}
+            />
+          </div>
+
+          <button
+            id="applyFilters"
+            class="bg-black bg-opacity-5 px-6 S:px-8 py-1 rounded-xl S:rounded-2xl tablet:rounded-3xl
+                   border-[#bfbfbf] border-[1px] text-[#222] text-opacity-75 hover:bg-opacity-20
+                   hover:text-opacity-85 transition-colors duration-400 whitespace-nowrap"
+            style="font-family: Inter, sans-serif; font-weight: 600;"
+          >
+            Aplicar
+          </button>
+        </div>
       </header>
-      
-      <article class="m-8">
-        <div id="coursesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-4 gap-8">
+
+      <article class="m-4 S:m-6 tablet:m-8">
+        <div
+          id="coursesGrid"
+          class="grid grid-cols-1 L:grid-cols-2 laptop:grid-cols-3 laptopL:grid-cols-4 gap-4 S:gap-6 tablet:gap-8"
+        >
           {courses.map((course) => <CourseCard course={course} />)}
         </div>
       </article>
     </section>
   </div>
 </DashboardLayout>
-

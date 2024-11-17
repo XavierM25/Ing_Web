@@ -9,8 +9,7 @@ const pedido = [
     pedido: 'Suscripción experto',
     students: '4 estudiantes',
     tiempo: 'Anual',
-    image:
-      '/src/layouts/Home_Section/Courses/components/images/desarrolloweb.png',
+    image: '',
     description:
       'Accede a todos los cursos, rutas, talleres y certificados de GuimarBot con la suscripción experto',
     price: 'S/. 500',
@@ -20,107 +19,91 @@ const types = ['Paypal', 'Tarjeta de crédito'];
 ---
 
 <DashboardLayout title="Carrito de compras">
-  <section class="w-full bg-white m-8">
-    <div class="text-[#222] text-start h-full justify-center items-center animate-fadeInBlurHorizontal">
-      <h1
-        class="text-2xl mb-4 font-onest text-[#222] font-bold"
-      >
+  <section class="w-full bg-white m-2 laptop:m-8">
+    <div
+      class="text-[#222] text-start h-full justify-center items-center animate-fadeInBlurHorizontal"
+    >
+      <h1 class="text-xl tablet:text-2xl mb-4 font-onest text-[#222] font-bold">
         Resumen de tu pedido
       </h1>
-      <form class="flex flex-row space-x-5">
+      <form
+        class="flex flex-col tablet:flex-row tablet:space-x-5 space-y-4 tablet:space-y-0"
+      >
         {
           pedido.map((pedido) => (
-            <div class="bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] backdrop-blur w-[935px] h-[325px] rounded-2xl">
-              <div class="m-4 pl-2 items-center space-x-5 flex flex-row">
-                <h1
-                  class="text-[18px] font-poppins text-[#222]"
-                  style="font-weight: 600;"
-                >
+            <div class="bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] backdrop-blur w-full tablet:w-[600px] laptop:w-[750px] laptopL:w-[935px] h-auto laptop:h-[325px] rounded-2xl">
+              <div class="m-4 pl-2 items-center space-x-2 tablet:space-x-5 flex flex-col tablet:flex-row">
+                <h1 class="text-base tablet:text-[18px] font-poppins text-[#222] font-semibold">
                   {pedido.pedido}
                 </h1>
-                <div
-                  class="space-x-2 flex flex-row font-poppins text-[#222]"
-                  style="font-weight: 300;"
-                >
-                  <p class="bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] items-center inline-flex px-4 py-[4px] rounded-full flex-row text-[13px]">
+                <div class="space-x-2 flex flex-row font-poppins text-[#222] font-light">
+                  <p class="bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] items-center inline-flex px-2 tablet:px-4 py-[4px] rounded-full flex-row text-[12px] tablet:text-[13px]">
                     {pedido.students}
                   </p>
-                  <p class="bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] items-center inline-flex px-4 py-[4px] rounded-full flex-row text-[13px]">
+                  <p class="bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] items-center inline-flex px-2 tablet:px-4 py-[4px] rounded-full flex-row text-[12px] tablet:text-[13px]">
                     {pedido.tiempo}
                   </p>
                 </div>
               </div>
-              <div class="grid grid-cols-3 grid-rows-1 gap-4 m-6">
-                <div class="col-span-3">
-                  <div class="grid grid-cols-6 grid-rows-1 gap-4">
-                    {<img
-                      src="/src/layouts/Home_Section/Courses/components/images/desarrolloweb.png"
-                      class=" col-span-3 rounded-lg"
-                      alt=""
-                    />}
-                    <p
-                      class="col-span-4 col-start-4 text-[14px] opacity-75 min-w-96 font-poppins"
-                      style="font-weight: 300;"
-                    >
+
+              <div class="m-4 tablet:m-6">
+                <div class="grid grid-cols-1 tablet:grid-cols-6 gap-4">
+                  <img
+                    src="../../pages/dashboard/resources/Courses/images/python.jpg"
+                    class="w-full tablet:col-span-3 rounded-lg"
+                    alt=""
+                  />
+                  <div class="tablet:col-span-3 space-y-4">
+                    <p class="text-[13px] tablet:text-[14px] opacity-75 font-poppins font-light">
                       {pedido.description}
                     </p>
-                    <h1
-                      class="col-span-8 col-start-8 mr-4 justify-end flex font-poppins text-[#222]"
-                      style="font-weight: 500;"
-                    >
+                    <h1 class="text-right font-poppins text-[#222] font-medium">
                       {pedido.price}
                     </h1>
                   </div>
                 </div>
               </div>
-              <div class="flex flex-row px-6 justify-between w-full  rounded-b-xl font-inter">
+
+              <div class="flex flex-col tablet:flex-row px-4 tablet:px-6 py-4 justify-between w-full rounded-b-xl font-inter space-y-2 tablet:space-y-0">
                 <a
                   href=""
-                  class="text-[16px] text-[#0169e1]"
-                  style="font-weight: 400;"
+                  class="text-[14px] tablet:text-[16px] text-[#0169e1] font-normal"
                 >
                   ¿Necesitas ayuda en tu pedido?
                 </a>
-                <p class="mr-4 text-[16px]" style="font-weight: 600;">
+                <p class="text-[14px] tablet:text-[16px] font-semibold">
                   Total {pedido.price}
                 </p>
               </div>
             </div>
           ))
         }
-        {/* Segunda tarjeta - opciones de compra */}
+
         {
           pedido.map((pedido) => (
-            <div class="bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] backdrop-blur w-[450px] h-[325px] rounded-2xl">
-              <h1
-                class="text-[24px] text-[#f7c124] mt-10 text-center"
-                style="font-weight: 600;"
-              >
+            <div class="bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] backdrop-blur w-full tablet:w-[350px] laptop:w-[400px] laptopL:w-[450px] h-auto laptop:h-[325px] rounded-2xl">
+              <h1 class="text-[20px] tablet:text-[24px] text-[#f7c124] mt-6 tablet:mt-10 text-center font-semibold">
                 {pedido.pedido}
               </h1>
-              <h1
-                class="text-center text-[30px] mb-2 text-[#222] font-inter"
-                style="font-weight: 900;"
-              >
+              <h1 class="text-center text-[24px] tablet:text-[30px] mb-2 text-[#222] font-inter font-black">
                 {pedido.price}
               </h1>
 
               <a
                 href=""
-                class="text-[16px] text-[#0169e1] justify-center flex mb-8 font-inter"
-                style="font-weight: 400;"
+                class="text-[14px] tablet:text-[16px] text-[#0169e1] justify-center flex mb-6 tablet:mb-8 font-inter font-normal"
               >
                 ¿Tienes un cupón?
               </a>
 
-              <div class="space-y-3">
+              <div class="space-y-3 px-4 tablet:px-0 pb-4 tablet:pb-0">
                 <ModalController
                   price={pedido.price}
                   title={pedido.pedido}
                   client:load
                 />
 
-                <button class="flex flex-row px-[78px] py-2 bg-black bg-opacity-5 border-[#bfbfbf] border-[1px] backdrop-blur rounded-lg mx-auto">
+                <button class="flex flex-row px-4 tablet:px-[78px] py-2 bg-black bg-opacity-5 border-[#bfbfbf] border-[1px] backdrop-blur rounded-lg mx-auto">
                   <svg
                     width="24"
                     height="24"
@@ -136,7 +119,7 @@ const types = ['Paypal', 'Tarjeta de crédito'];
                       stroke-linejoin="round"
                     />
                   </svg>
-                  <p class="ml-2 font-inter" style="font-weight: 500;">
+                  <p class="ml-2 font-inter font-medium text-[14px] tablet:text-[16px]">
                     Comprar como regalo
                   </p>
                 </button>
