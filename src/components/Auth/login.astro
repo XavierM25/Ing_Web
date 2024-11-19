@@ -1,14 +1,16 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import LoginHeader from '../../LoginHeader.astro';
-import LoginForm from '../../LoginForm.astro';
-import LoginSocial from '../../LoginSocial.astro';
-import '../../../layouts/styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import LoginHeader from './LoginHeader.astro';
+import LoginForm from './LoginForm.astro';
+import LoginSocial from './LoginSocial.astro';
+import '../../layouts/styles/global.css';
 ---
 
 <Layout title="Login - Welcome Back">
-  <main class="min-h-screen bg-white">
-    <div class="max-w-md w-full bg-white rounded-2xl p-8 space-y-6">
+  <main class="flex justify-center min-h-screen bg-white">
+    <div
+      class="max-w-lg tablet:max-w-2xl w-full bg-white rounded-2xl p-8 space-y-6"
+    >
       <div class="mt-2">
         <LoginHeader />
       </div>
@@ -31,6 +33,7 @@ import '../../../layouts/styles/global.css';
           href="#"
           id="btnRegister"
           class="font-inter font-medium text-blue-600 hover:text-blue-400 transition"
+          onclick="window.showRegister(); return false;"
         >
           ¡Registrate!
         </a>

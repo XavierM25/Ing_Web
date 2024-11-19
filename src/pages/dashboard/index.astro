@@ -1,5 +1,6 @@
 ---
 import DashboardLayout from '../../layouts/DashboardLayout.astro';
+import '../../layouts/styles/global.css';
 
 const user = 'David';
 
@@ -25,13 +26,16 @@ const dashboardData = {
   ],
 };
 
-import '../../layouts/styles/global.css';
+const isMenuOpen = false;
 ---
 
 <DashboardLayout title="Página principal">
-  <div class="p-4 S:p-6 tablet:p-8">
+  <div class="p-4 S:p-6 tablet:p-8 laptop:ml-56 relative z-10">
     <div class="flex items-center justify-between mb-6 tablet:mb-8">
-      <p class="text-[#222] font-inter" style="font-weight: 500;">
+      <p
+        class="text-[#222] font-inter ml-8 laptop:ml-0"
+        style="font-weight: 500;"
+      >
         Bienvenido de nuevo, {user} 👋
       </p>
     </div>
@@ -222,3 +226,16 @@ import '../../layouts/styles/global.css';
     </div>
   </div>
 </DashboardLayout>
+
+<script>
+  const menuButton = document.getElementById('menuButton');
+  const sidebar = document.querySelector('aside');
+  const overlay = document.getElementById('sidebar-overlay');
+
+  menuButton?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    sidebar?.classList.toggle('translate-x-0');
+    sidebar?.classList.toggle('-translate-x-full');
+    overlay?.classList.toggle('hidden');
+  });
+</script>

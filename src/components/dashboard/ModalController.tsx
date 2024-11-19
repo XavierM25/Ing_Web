@@ -1,12 +1,15 @@
 import { useState } from 'react';
-import PaymentModal from '../../../../../components/PaymentModal';
+import PaymentModal from '../PaymentModal';
 
 interface ModalControllerProps {
   price: string;
   title: string;
 }
 
-export default function ModalController({ price, title }: ModalControllerProps) {
+export default function ModalController({
+  price,
+  title,
+}: ModalControllerProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleClick = (e: React.MouseEvent) => {
@@ -20,13 +23,16 @@ export default function ModalController({ price, title }: ModalControllerProps) 
         onClick={handleClick}
         className="flex flex-row px-24 py-2 bg-white bg-opacity-5 border-[#bfbfbf] border-[1px] backdrop-blur rounded-lg mx-auto"
       >
-        <p className="text-[#222]" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}>
+        <p
+          className="text-[#222]"
+          style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+        >
           Comprar para mí
         </p>
       </button>
 
-      <PaymentModal 
-        isOpen={isModalOpen} 
+      <PaymentModal
+        isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         price={price}
         title={title}

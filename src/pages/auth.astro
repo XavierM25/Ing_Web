@@ -1,38 +1,41 @@
 ---
-import Login from '../components/Auth/auth-components/login.astro';
-import Register from '../components/Auth/auth-components/register.astro';
-import BackButton from '../components/Auth/BackButton';
+import Login from '../components/Auth/login.astro';
+import Register from '../components/Auth/register.astro';
+import BackButton from '../components/Auth/auth-components/BackButton';
 import AuthLayout from '../layouts/AuthLayout.astro';
 ---
 
 <AuthLayout title="Guimarbot: Autenticación">
-  <BackButton client:load />
-  <main class="mx-auto w-1/4 h-full animate-fade-in-dow">
-    <div id="loginContainer" class="w-full">
+  <div class="absolute top-0 left-6 L:left:1/8 L:-top-3 laptop:left-[20%]">
+    <BackButton client:load />
+  </div>
+  <main class="mx-auto w-full h-full animate-fade-in-dow">
+    <div id="loginContainer" class="w-full h-full">
       <Login />
     </div>
-    <div id="registerContainer" class="hidden w-full">
+    <div id="registerContainer" class="hidden w-full h-full">
       <Register />
     </div>
   </main>
 </AuthLayout>
-
 <script>
-  const loginContainer = document.getElementById('loginContainer');
-  const registerContainer = document.getElementById('registerContainer');
+  function showRegister() {
+    document.getElementById('loginContainer')!.classList.add('hidden');
+    document.getElementById('registerContainer')!.classList.remove('hidden');
+  }
 
-  const btnLogin = document.getElementById('btnLogin');
-  const btnRegister = document.getElementById('btnRegister');
+  function showLogin() {
+    document.getElementById('registerContainer')!.classList.add('hidden');
+    document.getElementById('loginContainer')!.classList.remove('hidden');
+  }
 
-  btnLogin?.addEventListener('click', (e) => {
-    e.preventDefault();
-    loginContainer?.classList.remove('hidden');
-    registerContainer?.classList.add('hidden');
-  });
+  declare global {
+    interface Window {
+      showRegister: () => void;
+      showLogin: () => void;
+    }
+  }
 
-  btnRegister?.addEventListener('click', (e) => {
-    e.preventDefault();
-    registerContainer?.classList.remove('hidden');
-    loginContainer?.classList.add('hidden');
-  });
+  window.showRegister = showRegister;
+  window.showLogin = showLogin;
 </script>

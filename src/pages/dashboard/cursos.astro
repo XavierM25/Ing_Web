@@ -1,14 +1,7 @@
 ---
 import DashboardLayout from '../../layouts/DashboardLayout.astro';
-import CourseCard from '../../pages/dashboard/resources/Courses/components/CourseCard.astro';
-import CustomDropdown from './resources/Courses/components/ButtonDropdown';
-
-const userData = {
-  nombre: 'David Montaño',
-  rol: 'Estudiante',
-  cursos: 12,
-  certificados: 5,
-};
+import CourseCard from '../../components/dashboard/CourseCard.astro';
+import CustomDropdown from '../../components/dashboard/ButtonDropdown';
 
 const options = [
   { id: 'price_low_high', label: 'Precio: Menor a mayor', category: 'Precio' },
@@ -31,7 +24,7 @@ const courses = [
     title: 'Matemáticas Básicas',
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    image: '/src/pages/dashboard/resources/Courses/images/desarrolloweb.png',
+    image: '/src/components/dashboard/images/mario.jpg',
     ageGroup: 'Niños (6-11 años)',
     price: 4,
     categoryGroup: 'Matemática',
@@ -42,7 +35,7 @@ const courses = [
     title: 'Introducción a la Programación',
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    image: '/src/pages/dashboard/resources/Courses/images/python.jpg',
+    image: '/src/components/dashboard/images/desarrolloweb.png',
     ageGroup: 'Adolescentes (12-17 años)',
     price: 7,
     categoryGroup: 'Programación',
@@ -53,7 +46,7 @@ const courses = [
     title: 'Arte y Creatividad',
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    image: '/src/pages/dashboard/resources/Courses/images/trading.jpg',
+    image: '/src/components/dashboard/images/trading.jpg',
     ageGroup: 'Adultos (+18 años)',
     price: 3,
     categoryGroup: 'Arte',
@@ -64,7 +57,7 @@ const courses = [
 
 <DashboardLayout title="Cursos">
   <div
-    class="w-full items-center flex justify-center flex-col p-4 S:p-6 tablet:p-8"
+    class="p-4 S:p-6 tablet:p-8 laptop:ml-56 relative z-10"
   >
     <section
       class="border-[#bfbfbf] border-[1px] rounded-xl S:rounded-2xl tablet:rounded-3xl w-full h-full overflow-hidden"
@@ -74,7 +67,6 @@ const courses = [
                      flex flex-col tablet:flex-row items-center justify-around space-y-4 tablet:space-y-0
                      py-4 tablet:py-0"
       >
-        {/* Barra de búsqueda */}
         <div
           class="bg-white border-[#bfbfbf] border-[1px] rounded-xl w-full tablet:w-auto h-[40px]
                     flex flex-row justify-between mx-4 tablet:mx-0"

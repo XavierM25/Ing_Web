@@ -1,7 +1,7 @@
 ---
 import DashboardLayout from '../../layouts/DashboardLayout.astro';
-import CreditCard from './resources/Carrito/components/payment.astro';
-import ModalController from './resources/Carrito/components/ModalController';
+import CreditCard from '../../components/dashboard/payment.astro';
+import ModalController from '../../components/dashboard/ModalController';
 import '../../layouts/styles/global.css';
 
 const pedido = [
@@ -9,7 +9,7 @@ const pedido = [
     pedido: 'Suscripción experto',
     students: '4 estudiantes',
     tiempo: 'Anual',
-    image: '',
+    image: '/src/components/dashboard/images/desarrolloweb.png',
     description:
       'Accede a todos los cursos, rutas, talleres y certificados de GuimarBot con la suscripción experto',
     price: 'S/. 500',
@@ -19,7 +19,7 @@ const types = ['Paypal', 'Tarjeta de crédito'];
 ---
 
 <DashboardLayout title="Carrito de compras">
-  <section class="w-full bg-white m-2 laptop:m-8">
+  <section class="p-4 S:p-6 tablet:p-8 laptop:ml-56 relative z-10">
     <div
       class="text-[#222] text-start h-full justify-center items-center animate-fadeInBlurHorizontal"
     >

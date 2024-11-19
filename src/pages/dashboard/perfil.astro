@@ -1,8 +1,8 @@
 ---
 import DashboardLayout from '../../layouts/DashboardLayout.astro';
-import ProfileImageUpload from './resources/Profile/components/ProfileImageUpload';
-import ProfileEdit from './resources/Profile/components/ProfileEdits';
-import Card from './resources/Profile/components/Card/Card.astro';
+import ProfileImageUpload from '../../components/dashboard/ProfileImageUpload';
+import ProfileEdit from '../../components/dashboard/ProfileEdits';
+import Card from '../../components/dashboard/Card.astro';
 
 const userData = {
   nombre: 'Xavier David Montaño García',
@@ -16,7 +16,7 @@ import '../../layouts/styles/global.css';
 ---
 
 <DashboardLayout title="Perfil">
-  <div class="p-4 S:p-6 tablet:p-8">
+  <div class="p-4 S:p-6 tablet:p-8 laptop:ml-56 relative z-10">
     <div class="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-4">
       {/* Perfil Card */}
       <div

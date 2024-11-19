@@ -1,11 +1,11 @@
 ---
-import HouseIcon from "./icons/HouseIcon.astro";
-import userSettings from "./icons/userSettings.astro";
-import books from "./icons/books.astro";
-import star from "./icons/star.astro";
-import save from "./icons/save.astro";
-import cart from "./icons/cart.astro";
-import pencil from "./icons/pencil.astro";
+import HouseIcon from './icons/HouseIcon.astro';
+import userSettings from './icons/userSettings.astro';
+import books from './icons/books.astro';
+import star from './icons/star.astro';
+import save from './icons/save.astro';
+import cart from './icons/cart.astro';
+import pencil from './icons/pencil.astro';
 
 const menuItems = [
   { name: 'Inicio', icon: HouseIcon, path: '/dashboard/' },
@@ -20,31 +20,51 @@ const menuItems = [
 const currentPath = Astro.url.pathname;
 ---
 
-<aside
-  class="bg-[#101010] w-56 min-h-screen p-4 backdrop-blur fixed left-0 top-0"
+<div
+  id="sidebar-overlay"
+  class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden laptop:hidden"
 >
-  <div class="flex items-center justify-center gap-2 mb-8">
-    <img src="/src/components/cabezabot.svg" class="w-10" alt="">
-    <h1 class="text-xl text-white font-inter" style="font-weight: 800;">GuimarBot</h1>
-  </div>
+</div>
 
-  <nav class="space-y-4">
+<aside
+  id="sidebar"
+  class="bg-[#101010] w-56 min-h-screen p-4 backdrop-blur fixed left-0 top-0 z-50
+           transition-transform duration-300 ease-in-out
+           -translate-x-full laptop:translate-x-0"
+>
+  <div class="flex items-center justify-center gap-2 mb-8 cursor-pointer">
+    <img src="/src/components/cabezabot.svg" class="w-10" alt="" />
+    <h1 class="text-xl text-white font-inter" style="font-weight: 800;">
+      GuimarBot
+    </h1>
+  </div>
+  <div
+    id="sidebar-overlay"
+    class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden laptop:hidden"
+  >
+  </div>
+  <nav class="space-y-4 relative z-50">
     {
       menuItems.map((item) => (
         <a
           href={item.path}
           class={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
             currentPath === item.path
-              ? 'bg-white bg-opacity-10 border-[1px] border-[#bfbfbf] text-white text-[22px]'
-              : ' border-[#3f3f3f] text-white text-[22px] hover:bg-white hover:bg-opacity-20'
+              ? 'bg-white bg-opacity-10 border-[1px] border-[#bfbfbf] text-white'
+              : 'border-[#3f3f3f] text-white hover:bg-white hover:bg-opacity-20'
           }`}
         >
           <span class="flex items-center justify-center">
             {typeof item.icon === 'string' ? item.icon : <item.icon />}
           </span>
-          <span class="text-sm font-poppins" style="font-weight: 700;">{item.name}</span>
+          <span class="text-sm font-poppins" style="font-weight: 700;">
+            {item.name}
+          </span>
         </a>
       ))
     }
   </nav>
 </aside>
+<button id="menuButton" class="" aria-label="Menú"> </button>
+
+<script></script>

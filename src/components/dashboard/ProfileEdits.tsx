@@ -2,7 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { Pencil, Lock } from 'lucide-react';
 import DateInput from './DateInput.tsx';
 
-import '../../../../../layouts/styles/global.css';
+import '../../layouts/styles/global.css';
 
 interface ProfileFormData {
   apellidos: string;
