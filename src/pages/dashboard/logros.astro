@@ -1,33 +1,189 @@
 ---
 import DashboardLayout from '../../layouts/DashboardLayout.astro';
+import AchievementCard from '../../components/dashboard/logros/AchievementCard.astro';
+import type { Achievement } from '../../components/dashboard/logros/types/achievement';
 
-const userData = {
-  nombre: "David Montaño",
-  rol: "Estudiante",
-  cursos: 12,
-  certificados: 5
-};
+const achievements: Achievement[] = [
+  {
+    id: 1,
+    icon: '🏆',
+    title: 'Racha Perfecta',
+    daysCount: 7,
+    isCompleted: true,
+    isTracked: false,
+    requiredSteps: 7,
+    completedSteps: 7,
+    category: 'streak',
+    description: 'Completa ejercicios de programación durante 7 días seguidos',
+  },
+  {
+    id: 2,
+    icon: '🔥',
+    title: 'Racha Legendaria',
+    daysCount: 30,
+    isCompleted: false,
+    isTracked: false,
+    requiredSteps: 30,
+    completedSteps: 15,
+    category: 'streak',
+    description: 'Mantén una racha de estudio durante 30 días consecutivos',
+  },
+  {
+    id: 3,
+    icon: '⚡',
+    title: 'Racha Relámpago',
+    daysCount: 15,
+    isCompleted: false,
+    isTracked: false,
+    requiredSteps: 15,
+    completedSteps: 0,
+    category: 'streak',
+    description: 'Completa 3 ejercicios diarios durante 15 días seguidos',
+  },
+
+  {
+    id: 4,
+    icon: '📜',
+    title: 'Primera Certificación',
+    subtitle: 'Desarrollo Web Frontend',
+    isCompleted: true,
+    isTracked: false,
+    requiredSteps: 1,
+    completedSteps: 1,
+    category: 'course',
+    description: 'Completa tu primera certificación en desarrollo web',
+  },
+  {
+    id: 5,
+    icon: '🏗️',
+    title: 'Arquitecto Full Stack',
+    subtitle: 'Desarrollo Web Completo',
+    isCompleted: false,
+    isTracked: false,
+    requiredSteps: 3,
+    completedSteps: 0,
+    category: 'course',
+    description: 'Completa las certificaciones de Frontend, Backend y DevOps',
+  },
+  {
+    id: 6,
+    icon: '🎓',
+    title: 'Graduado con Honores',
+    subtitle: 'Excelencia Académica',
+    isCompleted: false,
+    isTracked: true,
+    requiredSteps: 5,
+    completedSteps: 3,
+    category: 'course',
+    description: 'Completa 5 cursos con una puntuación superior al 90%',
+  },
+
+  {
+    id: 7,
+    icon: '🚀',
+    title: 'Maestro JavaScript',
+    subtitle: 'Domina JavaScript Avanzado',
+    isCompleted: false,
+    isTracked: false,
+    requiredSteps: 5,
+    completedSteps: 3,
+    category: 'skill',
+    description: 'Completa todos los módulos avanzados de JavaScript',
+  },
+  {
+    id: 8,
+    icon: '🎯',
+    title: 'Especialista en React',
+    subtitle: 'Dominio de React',
+    isCompleted: false,
+    isTracked: true,
+    requiredSteps: 8,
+    completedSteps: 4,
+    category: 'skill',
+    description: 'Completa todos los proyectos prácticos de React',
+  },
+  {
+    id: 9,
+    icon: '🎨',
+    title: 'Artista del CSS',
+    subtitle: 'Maestría en Diseño Web',
+    isCompleted: false,
+    isTracked: false,
+    requiredSteps: 10,
+    completedSteps: 0,
+    category: 'skill',
+    description: 'Crea 10 diseños web responsive sin utilizar frameworks',
+  },
+  {
+    id: 10,
+    icon: '🧪',
+    title: 'Testing Master',
+    subtitle: 'Calidad de Software',
+    isCompleted: false,
+    isTracked: true,
+    requiredSteps: 6,
+    completedSteps: 2,
+    category: 'skill',
+    description: 'Implementa tests unitarios y de integración en 6 proyectos',
+  },
+];
+
+const trackedAchievements = achievements.filter((a) => a.isTracked);
+const completedAchievements = achievements.filter((a) => a.isCompleted);
+const inProgressAchievements = achievements.filter((a) => !a.isCompleted);
+const availableAchievements = achievements.filter(
+  (a) => !a.isTracked && !a.isCompleted,
+);
+import '../../layouts/styles/global.css';
 ---
 
 <DashboardLayout title="Logros">
-  <div class="p-4 S:p-6 tablet:p-8 laptop:ml-56 relative z-10">
-    <h1 class="text-3xl font-bold mb-8 text-gray-800">Mis Logros</h1>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="bg-white rounded-xl shadow-lg p-6 text-center">
-        <div class="text-4xl mb-4">🏆</div>
-        <h3 class="text-xl font-semibold text-accent mb-2">Primera Certificación</h3>
-        <p class="text-gray-600">Completaste tu primer curso certificado</p>
-      </div>
-      <div class="bg-white rounded-xl shadow-lg p-6 text-center">
-        <div class="text-4xl mb-4">⭐</div>
-        <h3 class="text-xl font-semibold text-accent mb-2">Estudiante Destacado</h3>
-        <p class="text-gray-600">Top 10% en calificaciones</p>
-      </div>
-      <div class="bg-white rounded-xl shadow-lg p-6 text-center">
-        <div class="text-4xl mb-4">🎯</div>
-        <h3 class="text-xl font-semibold text-accent mb-2">Racha Perfecta</h3>
-        <p class="text-gray-600">7 días consecutivos de estudio</p>
+  <section class="p-8 relative z-10 S:p-6 tablet:p-8 laptop:ml-64">
+    <div class="max-w-full space-y-8">
+      <div class="grid grid-cols-2 gap-6 tablet:grid-cols-2 laptop:grid-cols-2">
+        <div class="space-y-6">
+          <h2 class="text-2xl font-bold text-[#222] font-onest">
+            Logros Disponibles
+          </h2>
+          <div class="font-inter space-y-4">
+            {
+              availableAchievements.map((achievement) => (
+                <AchievementCard achievement={achievement} />
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div>
+            <h2 class="text-2xl font-bold text-[#222] font-onest mb-6">
+              Logros en Progreso
+            </h2>
+            <div class="font-inter space-y-4">
+              {
+                inProgressAchievements
+                  .filter((a) => a.isTracked)
+                  .map((achievement) => (
+                    <AchievementCard achievement={achievement} />
+                  ))
+              }
+            </div>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-bold text-[#222] font-onest mb-4">
+              Logros Completados
+            </h2>
+            <div class="font-inter space-y-4">
+              {
+                completedAchievements.map((achievement) => (
+                  <AchievementCard achievement={achievement} />
+                ))
+              }
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </DashboardLayout>

@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../layouts/Home_Section/Hero/page.astro';
-import Header from '../layouts/Header/header.astro';
-import Planes from '../layouts/Home_Section/Planes/page.astro';
-import Carrousel from '../layouts/Home_Section/Carrousel/page.tsx';
-import Choose from '../layouts/Home_Section/Choose/page.astro';
-import FAQ from '../layouts/Home_Section/FAQ/page.astro'
-import Footer from '../layouts/Footer/footer';
+import Hero from '../components/home/Hero_Main.astro';
+import Header from '../components/home/header.astro';
+import Planes from '../components/home/Hero_Planes.astro';
+import Carrousel from '../components/home/components/ui/Carrousel';
+import Choose from '../components/home/Hero_Features.astro';
+import FAQ from '../components/home/Hero_FAQ.astro';
+import Footer from '../components/home/footer';
 ---
 
 <Layout title="GuimarBot - Educando y aprendiendo">
@@ -17,7 +17,11 @@ import Footer from '../layouts/Footer/footer';
       <Header />
       <div id="inicio" class="w-full items-center justify-center">
         <div class="relative h-[485px] animate-fadeInBlurHorizontal">
-          <div class="absolute inset-0 bg-center opacity-25 blur-[10px] " style="background-image: url('/src/components/apps.png'); background-size: contain; background-repeat: no-repeat;"></div>
+          <div
+            class="absolute inset-0 bg-center opacity-25 blur-[10px]"
+            style="background-image: url('/src/components/apps.png'); background-size: contain; background-repeat: no-repeat;"
+          >
+          </div>
           <div class="relative">
             <Hero />
           </div>
@@ -33,7 +37,7 @@ import Footer from '../layouts/Footer/footer';
       <div id="planes" class="w-full items-center justify-center">
         <Planes />
       </div>
-      <Footer client:load/>
+      <Footer client:load />
     </div>
   </main>
 </Layout>

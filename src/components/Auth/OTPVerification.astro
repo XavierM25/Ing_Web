@@ -1,0 +1,186 @@
+<div id="otpModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+    <div class="bg-white rounded-lg p-6 w-full max-w-md mx-4">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-semibold text-[#222] font-onest">Código de verificación</h2>
+        <button id="closeOtpModal" class="text-gray-500 hover:text-gray-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      
+      <p class="text-gray-600 mb-6 font-inter text-sm">
+        Ingrese su confirmación que enviamos por correo electrónico
+      </p>
+      
+      <div class="flex gap-2 mb-6 justify-center">
+        <input type="text" maxlength="1" class="w-12 h-12 border-2 rounded text-center text-xl font-semibold focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" />
+        <input type="text" maxlength="1" class="w-12 h-12 border-2 rounded text-center text-xl font-semibold focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" />
+        <input type="text" maxlength="1" class="w-12 h-12 border-2 rounded text-center text-xl font-semibold focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" />
+        <input type="text" maxlength="1" class="w-12 h-12 border-2 rounded text-center text-xl font-semibold focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" />
+        <input type="text" maxlength="1" class="w-12 h-12 border-2 rounded text-center text-xl font-semibold focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" />
+        <input type="text" maxlength="1" class="w-12 h-12 border-2 rounded text-center text-xl font-semibold focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" />
+      </div>
+      
+      <button id="verifyOtpButton" class="w-full bg-blue-600 text-white rounded-lg px-4 py-3 font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300">
+        Continue
+      </button>
+    </div>
+  </div>
+  
+  <script>
+
+    
+interface OTPHandlers {
+  onSuccess?: (response: any) => void;
+  onError?: (error: any) => void;
+}
+
+declare global {
+  interface Window {
+    showOtpModal: () => void;
+    initOTPVerification: (email: string, handlers?: OTPHandlers) => void;
+  }
+}
+
+let otpInputs: NodeListOf<HTMLInputElement>;
+let otpModal: HTMLElement | null;
+let currentEmail: string = '';
+
+// Inicializar la funcionalidad OTP
+window.initOTPVerification = async (email: string, handlers?: OTPHandlers) => {
+  currentEmail = email;
+  
+  try {
+    // Enviar solicitud de OTP
+    const response = await fetch('/api/auth/send-otp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Error al enviar OTP');
+    }
+
+    // Mostrar el modal
+    window.showOtpModal();
+  } catch (error) {
+    console.error('Error:', error);
+    handlers?.onError?.(error);
+  }
+};
+
+// Cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+  otpModal = document.getElementById('otpModal');
+  otpInputs = document.querySelectorAll<HTMLInputElement>('#otpModal input[type="text"]');
+  const closeButton = document.getElementById('closeOtpModal');
+  const verifyButton = document.getElementById('verifyOtpButton');
+
+  // Configurar el comportamiento de los inputs
+  otpInputs.forEach((input, index) => {
+    // Manejar input
+    input.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement;
+      
+      // Permitir solo números
+      target.value = target.value.replace(/[^0-9]/g, '');
+
+      // Mover al siguiente input
+      if (target.value && index < otpInputs.length - 1) {
+        otpInputs[index + 1].focus();
+      }
+    });
+
+    // Manejar borrado
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace' && !input.value && index > 0) {
+        otpInputs[index - 1].focus();
+      }
+    });
+
+    // Manejar pegado
+    input.addEventListener('paste', (e) => {
+      e.preventDefault();
+      const paste = (e.clipboardData || (window as any).clipboardData).getData('text');
+      const numbers = paste.match(/\d/g);
+      
+      if (numbers) {
+        numbers.forEach((num: string, i: number) => {
+          if (i < otpInputs.length) {
+            otpInputs[i].value = num;
+            if (i < otpInputs.length - 1) {
+              otpInputs[i + 1].focus();
+            }
+          }
+        });
+      }
+    });
+  });
+
+  // Manejar cierre del modal
+  closeButton?.addEventListener('click', () => {
+    if (otpModal) {
+      otpModal.classList.add('hidden');
+      otpInputs.forEach(input => input.value = '');
+    }
+  });
+
+  // Manejar verificación
+  verifyButton?.addEventListener('click', async () => {
+    const otp = Array.from(otpInputs).map(input => input.value).join('');
+    
+    if (otp.length !== 6) {
+      alert('Por favor, ingrese el código completo de 6 dígitos');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/verify-otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: currentEmail,
+          otp: parseInt(otp, 10)
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        console.error('Respuesta del servidor:', data);
+    throw new Error(data.message || 'Error al verificar OTP');
+      }
+
+      // Cerrar modal y limpiar inputs
+      if (otpModal) {
+        otpModal.classList.add('hidden');
+        otpInputs.forEach(input => input.value = '');
+      }
+
+      // Guardar el token en localStorage
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+      }
+
+      // Llamar al callback de éxito si existe
+      if (window.initOTPVerification['handlers']?.onSuccess) {
+        window.initOTPVerification['handlers'].onSuccess(data);
+      }
+    } catch (error) {
+        console.error('Error al procesar la respuesta:', error);
+        alert(error instanceof Error ? error.message : 'Error al verificar el código');
+      
+      // Llamar al callback de error si existe
+      if (window.initOTPVerification['handlers']?.onError) {
+        window.initOTPVerification['handlers'].onError(error);
+      }
+    }
+  });
+});
+  </script>

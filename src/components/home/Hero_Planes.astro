@@ -1,6 +1,6 @@
 ---
 import '../../styles/global.css';
-import { FEATURES, PLANS } from './components/constants';
+import { FEATURES, PLANS } from './components/shared/constants';
 import { ViewTransitions } from 'astro:transitions';
 ---
 
@@ -8,7 +8,6 @@ import { ViewTransitions } from 'astro:transitions';
 <Fragment>
   <section class="flex flex-col justify-center px-4 py-8 S:py-12 tablet:py-16">
     <div class="max-w-7xl w-full mx-auto">
-      {/* Header Section */}
       <div class="text-center mb-8 S:mb-12 tablet:mb-16 font-inter">
         <h1
           class="text-[32px] S:text-[40px] tablet:text-[50px] laptop:text-[65px] text-[#222] font-black mb-2 tablet:mb-3"
@@ -22,14 +21,12 @@ import { ViewTransitions } from 'astro:transitions';
         </p>
       </div>
 
-      {/* Cards Grid */}
       <div
         class="grid grid-cols-1 gap-6 tablet:gap-8 place-items-center laptop:grid-cols-3 S:max-w-[450px] laptop:max-w-none mx-auto"
       >
         {
           PLANS.map((plan) => (
             <div class="w-full bg-white/5 border border-[#bfbfbf] backdrop-blur rounded-2xl S:rounded-3xl transition-all duration-300 hover:shadow-lg flex flex-col">
-              {/* Card Content */}
               <div class="flex-1 p-6 S:p-8">
                 <div class="mb-6 tablet:mb-8">
                   <h2 class="text-xl S:text-2xl tablet:text-[30px] text-[#222] font-extrabold font-onest">
@@ -40,7 +37,6 @@ import { ViewTransitions } from 'astro:transitions';
                   </p>
                 </div>
 
-                {/* Price Section */}
                 <div class="flex items-end mb-6 tablet:mb-8 font-inter">
                   <span
                     class="text-3xl S:text-4xl tablet:text-[45px] laptop:text-[50px] font-black"
@@ -53,7 +49,6 @@ import { ViewTransitions } from 'astro:transitions';
                   </span>
                 </div>
 
-                {/* Features List */}
                 <ul class="space-y-3 tablet:space-y-4">
                   {FEATURES.map((feature) => (
                     <li class="flex items-start gap-2">
@@ -81,7 +76,6 @@ import { ViewTransitions } from 'astro:transitions';
                 </ul>
               </div>
 
-              {/* Button Section */}
               <div class="p-6 S:p-8 pt-4">
                 <button class="w-full h-10 S:h-12 flex items-center justify-center gap-2 rounded-lg border border-[#bfbfbf] bg-[#222]/5 text-[#222]/50 hover:bg-white hover:text-[#0267dc] transition-colors duration-300 font-semibold font-inter text-sm S:text-base">
                   Adquirir
